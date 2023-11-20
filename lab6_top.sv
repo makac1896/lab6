@@ -1,4 +1,4 @@
-// INSTRUCTIONS:
+ // INSTRUCTIONS:
 //
 // You can use this file to demo your Lab6 on your DE1-SoC.  
 // 
