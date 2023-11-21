@@ -27,7 +27,7 @@ assign Rm = instruction [2:0];
 
 
 
-Mux muxInDecoder(
+Mux #(3) muxInDecoder (
   .Rn(Rn),
   .Rd(Rd),
   .Rm(Rm),
@@ -64,17 +64,17 @@ endmodule: Instruction_Decoder
 
 module Mux(Rn, Rd, Rm, nsel, num);
   
- parameter n = 16;
+ parameter n = 3;
   input [n-1:0] Rm, Rd, Rn ;  // inputs
-  input [n-1:0]   nsel ; 
-  output[2:0] num ;
+  input [2:0]   nsel ; 
+  output[n-1:0] num ;
   reg [n-1:0] num ;
 
   always_comb begin
     case(nsel) 				// what values can nsel have and how many bits is it?
-      3'b001: num = Rm ;
-      3'b010: num = Rd ;
       3'b100: num = Rn ;
+      3'b010: num = Rd ;
+      3'b001: num = Rm ;
       default: num =  {n{1'bx}} ;
     endcase
   end
