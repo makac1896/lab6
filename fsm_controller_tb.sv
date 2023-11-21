@@ -10,7 +10,6 @@ wire [2:0] nsel;
 wire w;
 wire loada, loadb, loadc, loads, asel, bsel, write;
 wire [2:0] writenum, readnum;
-wire [1:0] shift;
 
 // Instantiate the FSM controller
 fsm_controller uut (
@@ -30,8 +29,7 @@ fsm_controller uut (
     .bsel(bsel),
     .write(write),
     .writenum(writenum),
-    .readnum(readnum),
-    .shift(shift)
+    .readnum(readnum)
 );
 
 // Clock generation
@@ -49,24 +47,25 @@ initial begin
     op = 2'b00; // Set to an initial op value
 
     // Apply reset
-    #10 reset = 0; s=1;
+    #10 reset = 0;
 
     // Wait for a few clock cycles
-    #50;
+    #10;
 
     // Example test sequence
-    opcode = 3'b101; // Set opcode to MOV_Write
-    op = 2'b01; // Set op to an arbitrary value
-
-    #20;
-
-    opcode = 3'b001; // Set opcode to addGetA
+    s=1;
+    opcode = 3'b110; // Set opcode to MOV_Write
     op = 2'b10; // Set op to an arbitrary value
+    
+    #50;
 
-    #20;
+    // opcode = 3'b001; // Set opcode to addGetA
+    // op = 2'b10; // Set op to an arbitrary value
 
-    // End simulation after some time
-    #1000; $stop;
+    // #20;
+    $stop;
+    // // End simulation after some time
+    // #1000; $stop;
 end
 
 endmodule

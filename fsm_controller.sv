@@ -37,7 +37,8 @@ output reg [2:0] writenum, readnum;
 `define MVN_MVN 5'b01101
 `define MVN_WriteReg 5'b01110 
 
-//CMP Rn,Rm{,<sh_op>}
+//CMP Rn,Rm{,<sh_op>} 15 - 20
+`define CMP 5'b01111
 
 reg [4:0] current_state, next_state;
 
@@ -85,6 +86,21 @@ always_comb begin
         `waitState:
             begin
                 w = 1'b1;
+                loada = 1'b0;
+                loadb = 1'b0;
+                loadc = 1'b0;
+                loads = 1'b0;
+                asel = 1'b0;
+                bsel = 1'b0;
+                nsel = 3'b000;
+                vsel = 2'b00;
+                write = 1'b0;
+                writenum = 3'b000;
+                readnum = 3'b000;
+            end
+          `decode:
+            begin
+                w = 1'b0;
                 loada = 1'b0;
                 loadb = 1'b0;
                 loadc = 1'b0;

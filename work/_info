@@ -10,7 +10,7 @@ cModel Technology
 dC:/intelFPGA_lite/18.1
 vALU
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1700531596
+Z1 !s110 1700560786
 !i10b 1
 !s100 Q]El4iifPW1JH__5e4@FG2
 ITGXodSoSGKjK8^fA<5ChF2
@@ -26,7 +26,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1700531596.000000
+Z5 !s108 1700560786.000000
 !s107 C:/Users/makac/cpen-211/lab6/lab6/alu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/alu.sv|
 !i113 1
@@ -58,17 +58,41 @@ R5
 R6
 R7
 n@a@l@u_tb
+vcpu
+R0
+!s110 1700561298
+!i10b 1
+!s100 8?Wd0K16W9U2ZFb>gcj>L1
+IIB2N8hazeS1:JiFXXaMJC2
+R2
+!s105 cpu_sv_unit
+S1
+R3
+w1700558665
+8C:/Users/makac/cpen-211/lab6/lab6/cpu.sv
+FC:/Users/makac/cpen-211/lab6/lab6/cpu.sv
+L0 1
+R4
+r1
+!s85 0
+31
+!s108 1700561298.000000
+!s107 C:/Users/makac/cpen-211/lab6/lab6/cpu.sv|
+!s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/cpu.sv|
+!i113 1
+R6
+R7
 vdatapath
 R0
 R1
 !i10b 1
-!s100 f046`97?z?@WkU^1kMNGo0
-IL9KhQ20oECO`X`95`1DWA2
+!s100 Sb_0_Y9J0TnkCG9G`a=Je1
+InWkYAJeaD0lUK9dADHPOd0
 R2
 Z8 !s105 datapath_sv_unit
 S1
 R3
-Z9 w1700529959
+Z9 w1700558691
 Z10 8C:/Users/makac/cpen-211/lab6/lab6/datapath.sv
 Z11 FC:/Users/makac/cpen-211/lab6/lab6/datapath.sv
 L0 1
@@ -84,7 +108,7 @@ R6
 R7
 vdatapath_tb
 R0
-!s110 1700531597
+R1
 !i10b 1
 !s100 @Tbh[W3OYdT^INYYUoIW70
 I@Co@mIl=@anzF1?YU]jlP2
@@ -108,15 +132,15 @@ R6
 R7
 vfsm_controller
 R0
-!s110 1700531770
+!s110 1700561242
 !i10b 1
-!s100 h^<Y2W2oXKA?fEM>G`hX^2
-IVLDh`3Ge4nSI[CMbgQZFm2
+!s100 4G6e`P>BK54>=FM4:mETH3
+IU2omQcTWdRCc8Lk660d6I2
 R2
 !s105 fsm_controller_sv_unit
 S1
 R3
-w1700531761
+w1700561234
 8C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
 FC:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
 L0 1
@@ -124,7 +148,7 @@ R4
 r1
 !s85 0
 31
-!s108 1700531770.000000
+!s108 1700561242.000000
 !s107 C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv|
 !i113 1
@@ -132,15 +156,15 @@ R6
 R7
 vfsm_controller_tb
 R0
-Z14 !s110 1700531600
+Z14 !s110 1700560790
 !i10b 1
-!s100 :?ah;E6=;1jEDE@Gb;BN^3
-IZ[:mT<R7bgEa0UG?Cb>W32
+!s100 0fdPENUH^^j33Y?KanXBF1
+I54D[TT^Qc_7gQVha7G=lV3
 R2
 !s105 fsm_controller_tb_sv_unit
 S1
 R3
-w1700531535
+w1700560773
 8C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv
 FC:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv
 L0 3
@@ -148,7 +172,7 @@ R4
 r1
 !s85 0
 31
-Z15 !s108 1700531600.000000
+Z15 !s108 1700560790.000000
 !s107 C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv|
 !i113 1
@@ -304,8 +328,8 @@ vreg_load
 R0
 R1
 !i10b 1
-!s100 iSPlln:m<d4:@Y2H2:jj73
-ITe6n<`If`>LR6c5aBEP=H1
+!s100 VHR>B0Lgoh1fK65HS:@k40
+IK9MRn0^X2FSiDcIl^HMm>3
 R2
 R8
 S1
@@ -313,7 +337,7 @@ R3
 R9
 R10
 R11
-L0 143
+L0 140
 R4
 r1
 !s85 0
@@ -498,8 +522,8 @@ vsource_mux_a
 R0
 R1
 !i10b 1
-!s100 oU6Oe57XheT=LeSSYf1Bg0
-IJbN?=n;6DAhN_>`:FAPSg1
+!s100 ZgIZhM>9ciA:2o697eF`_0
+I:1D0zO[K[Lf6Y0<<7Mb@l2
 R2
 R8
 S1
@@ -507,7 +531,7 @@ R3
 R9
 R10
 R11
-L0 158
+L0 155
 R4
 r1
 !s85 0
@@ -522,8 +546,8 @@ vsource_mux_b
 R0
 R1
 !i10b 1
-!s100 c`9i=Cc_[YT>G_<Qk3<k>2
-IFJ=Nlc<dh4ddnPh<3E3=40
+!s100 i@LN3`TaF=RmA=iR?OO>k0
+I6V;<HlB2a36ob;S[We5X92
 R2
 R8
 S1
@@ -531,7 +555,7 @@ R3
 R9
 R10
 R11
-L0 166
+L0 163
 R4
 r1
 !s85 0
