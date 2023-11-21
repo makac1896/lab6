@@ -10,6 +10,8 @@ module regfile(data_in, writenum, write, readnum, clk, data_out);
 
   assign onehotWrite = 8'd1 << writenum;
   assign onehotRead = 8'd1 << readnum;
+  
+  
 
 //load registers
 regfile_load #(16) load0(
