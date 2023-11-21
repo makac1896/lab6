@@ -5,7 +5,7 @@ module datapath(
   input clk,
   input [15:0] datapath_in,
   output [15:0] datapath_out,
-  input vsel,
+  input [1:0] vsel,
   input asel,
   input bsel,
   input loada,
@@ -22,7 +22,7 @@ module datapath(
 );
 
 //inputs to modules
-wire [15:0] data_in;
+reg [15:0] data_in;
 wire [15:0] data_out;
 reg [15:0] in;
 reg [15:0] sout;
@@ -34,7 +34,22 @@ reg Z;
 
 
 // WritebackMultiplexer
-assign data_in = (vsel) ? datapath_in : datapath_out; // edit due to datapath_in***
+// edit due to datapath_in***
+
+always_comb begin
+
+	case(vsel)
+	
+	00: data_in = datapath_out;
+	01: data_in = {8'b0, PC};
+	10: data_in = sximm8;
+	11: data_in = mdata;
+	
+	
+	endcase
+
+
+end 
 	
 
 
