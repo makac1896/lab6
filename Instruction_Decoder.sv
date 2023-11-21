@@ -27,7 +27,7 @@ assign Rm = instruction [2:0];
 
 
 
-Mux MuxInDecoder(
+Mux muxInDecoder(
   .Rn(Rn),
   .Rd(Rd),
   .Rm(Rm),
@@ -55,7 +55,7 @@ signExtend5 extend5 (
 
 
 
-endmodule: InstructionDecoder
+endmodule: Instruction_Decoder
 
 
 
@@ -78,7 +78,7 @@ module Mux(Rn, Rd, Rm, nsel, num);
       default: num =  {n{1'bx}} ;
     endcase
   end
-endmodule
+endmodule: Mux
 
 
 
@@ -96,7 +96,7 @@ always_comb begin
 	 case(in)
 	 
 	 8'b0xxxxxxx: sximm8 = {8'b00000000, in};
-	 8'b1xxxxxxx: sximm8 = {8'd11111111, in};
+	 8'b1xxxxxxx: sximm8 = {8'b11111111, in};
 	 
 	 
 	 endcase

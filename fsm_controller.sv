@@ -8,7 +8,7 @@ output reg w;
 output reg loada, loadb, loadc, loads, asel, bsel, write;
 output reg [2:0] writenum, readnum;
 output reg [1:0]shift;
-output reg write;
+
 
 //define all the states here
 `define waitState 4'b0000 
