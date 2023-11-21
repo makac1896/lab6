@@ -3,7 +3,6 @@ module datapath(
   input write,
   input [2:0] readnum,
   input clk,
-  input [15:0] datapath_in,
   output [15:0] datapath_out,
   input [1:0] vsel,
   input asel,
@@ -12,10 +11,10 @@ module datapath(
   input loadb,
   input loadc,
   input loads,
-  input [15:0] sximm8;
-  input [15:0] sximm5;
-  input [15:0] mdata;
-  input [15:0] PC;
+  input [15:0] sximm8,
+  input [15:0] sximm5,
+  input [15:0] mdata,
+  input [15:0] PC,
   input [1:0] shift,
   input [1:0] ALUop,
   output reg Z_out
