@@ -12,6 +12,10 @@ module datapath(
   input loadb,
   input loadc,
   input loads,
+  input [15:0] sximm8;
+  input [15:0] sximm5;
+  input [15:0] mdata;
+  input [15:0] PC;
   input [1:0] shift,
   input [1:0] ALUop,
   output reg Z_out
@@ -30,7 +34,7 @@ reg Z;
 
 
 // WritebackMultiplexer
-assign data_in = (vsel) ? datapath_in : datapath_out;
+assign data_in = (vsel) ? datapath_in : datapath_out; // edit due to datapath_in***
 	
 
 
@@ -78,7 +82,7 @@ shifter U1_inst (
 //source operand mux 
 source_mux_b B7(
   .bsel(bsel),
-  .data_input({11'b0, datapath_in[4:0]}),
+  .data_input(sximm5),  // edit due to datapath_in***
   .shifter_output(sout),
   .data_out(Bin)
 );
