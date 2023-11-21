@@ -37,13 +37,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	InstructionDecoder
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module fsm_controller
-
-Top level modules:
-	fsm_controller
-
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module shifter_tb
@@ -80,6 +73,23 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	regfile
 
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ALU_tb
+
+Top level modules:
+	ALU_tb
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/datapath.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/datapath.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module datapath
+-- Compiling module reg_load
+-- Compiling module source_mux_a
+-- Compiling module source_mux_b
+
+Top level modules:
+	datapath
+
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module lab6_top
@@ -89,17 +99,5 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	lab6_top
-
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/datapath.sv {0 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/datapath.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module datapath
-** Error: (vlog-13069) C:/Users/makac/cpen-211/lab6/lab6/datapath.sv(15): near ";": syntax error, unexpected ';', expecting ')'.
-
-} {4.0 5.0} {}} C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALU_tb
-
-Top level modules:
-	ALU_tb
 
 } {} {}}

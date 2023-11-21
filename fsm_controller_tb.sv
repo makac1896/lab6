@@ -49,7 +49,7 @@ initial begin
     op = 2'b00; // Set to an initial op value
 
     // Apply reset
-    #10 reset = 0;
+    #10 reset = 0; s=1;
 
     // Wait for a few clock cycles
     #50;
@@ -64,8 +64,6 @@ initial begin
     op = 2'b10; // Set op to an arbitrary value
 
     #20;
-
-    // Repeat as needed for additional test cases
 
     // End simulation after some time
     #1000; $stop;
