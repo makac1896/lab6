@@ -7,8 +7,7 @@ output reg [2:0] nsel; //tbd and might change
 output reg w;
 output reg loada, loadb, loadc, loads, asel, bsel, write;
 output reg [2:0] writenum, readnum;
-output reg [1:0]shift;
-output reg write;
+output reg [1:0] shift;
 
 //define all the states here
 `define waitState 5'b00000 
@@ -35,13 +34,13 @@ end
 
 always_comb begin
     case(current_state)
-    `waitState: 
+    `waitState: next_state = `waitState; 
     `addGetA: next_state = `addGetB;
     `addGetB: next_state = `addADD;
     `addADD: next_state = `addWriteReg;
     `addWriteReg: next_state = `waitState;
     `MOV_Write: next_state = `waitState;
-    default: 
+    default: next_state = 5'bxxxxx;
     endcase
 end
 
@@ -143,7 +142,8 @@ always_comb begin
                 readnum = 3'b000;
                 shift = 2'b00;
             end
-          default: 
+          default:
+          begin
                 w = 1'bx;
                 loada = 1'bx;
                 loadb = 1'bx;
@@ -157,8 +157,8 @@ always_comb begin
                 writenum = 3'bxxx;
                 readnum = 3'bxxx;
                 shift = 2'bxx;  
+          end 
     endcase
 end
-
 
 endmodule
