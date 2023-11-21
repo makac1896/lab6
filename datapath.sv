@@ -38,13 +38,10 @@ reg Z;
 always_comb begin
 
 	case(vsel)
-	
 	00: data_in = datapath_out;
 	01: data_in = {8'b0, PC};
 	10: data_in = sximm8;
-	11: data_in = mdata;
-	
-	
+	11: data_in = mdata;	
 	endcase
 
 
