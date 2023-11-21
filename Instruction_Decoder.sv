@@ -15,7 +15,6 @@ wire [2:0] Rn, Rd, Rm;
 reg [2:0] num;
 
 
-
 assign opcode = instruction [15:13];
 assign op = instruction [12:11];
 assign shift = instruction [4:3];
