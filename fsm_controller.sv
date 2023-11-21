@@ -11,10 +11,10 @@ output reg [1:0]shift;
 output reg write;
 
 //define all the states here
-`define waitState 4'b0000 
+`define waitState 5'b00000 
 
 //MOV Rn, #<im8> 5
-`define MOV_Write 5'b00101;
+`define MOV_Write 5'b00101
 //MOV Rd, Rm {, <sh_op>} //sh_op is included in the instruction
 //ADD Rd,Rn,Rm{,<sh_op>} 1-4
 `define addGetA 5'b00001
@@ -27,28 +27,27 @@ output reg write;
 //AND Rd,Rn,Rm{,<sh_op>}
 //MVN Rd,Rm{,<sh_op>}
 
-reg [3:0] current_state, next_state;
-
+reg [4:0] current_state, next_state;
 
 always_ff @(clk) begin 
-  current_state <= (reset) ? waitState : next_state;
+  current_state <= (reset) ? `waitState : next_state;
 end
 
 always_comb begin
     case(current_state)
-    waitState: 
-    addGetA: next_state = addGetB;
-    addGetB: next_state = addADD;
-    addADD: next_state = addWriteReg;
-    addWriteReg: next_state = waitState;
-    MOV_Write: next_state = waitState;
+    `waitState: 
+    `addGetA: next_state = `addGetB;
+    `addGetB: next_state = `addADD;
+    `addADD: next_state = `addWriteReg;
+    `addWriteReg: next_state = `waitState;
+    `MOV_Write: next_state = `waitState;
     default: 
     endcase
 end
 
 always_comb begin
     case (current_state)
-        waitState:
+        `waitState:
             begin
                 w = 1'b1;
                 loada = 1'b0;
@@ -64,7 +63,7 @@ always_comb begin
                 readnum = 3'b000;
                 shift = 2'b00;
             end
-        addGetA:
+        `addGetA:
             begin
                 w = 1'b0;
                 loada = 1'b1;
@@ -80,7 +79,7 @@ always_comb begin
                 readnum = 3'b000;
                 shift = 2'b00;
             end
-          addGetB:
+          `addGetB:
             begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -96,7 +95,7 @@ always_comb begin
                 readnum = 3'b000;
                 shift = 2'b00;
             end
-          addADD:
+          `addADD:
             begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -112,7 +111,7 @@ always_comb begin
                 readnum = 3'b000;
                 shift = 2'b00;
             end
-          addWriteReg:
+          `addWriteReg:
             begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -128,7 +127,7 @@ always_comb begin
                 readnum = 3'b000;
                 shift = 2'b00;
             end
-          MOV_Write:
+          `MOV_Write:
           begin
                 w = 1'b0;
                 loada = 1'b0;
