@@ -5,29 +5,23 @@ module cpu_tb;
 parameter TIME_RESOLUTION = 1ns;
 
 reg err = 1'b0;
-reg clk, reset, s, load;
+reg clk, load;
 reg [15:0] in;
 wire [15:0] out;
 wire N, V, Z, W;
 
-cpu DUT(
+instruction_register DUT(
     .clk(clk),
-    .reset(reset),
-    .s(s),
-    .load(load),
     .in(in),
-    .out(out),
-    .N(N),
-    .V(V),
-    .Z(Z),
-    .w(W)
+    .load(load),
+    .instruction(out)
 );
 
 task mychecker;
     input [15:0] expected_datapath_out;
 
-    if (DUT.out !== expected_datapath_out) begin
-        $display("Error. Expected %h. Output was %h", expected_datapath_out, DUT.out);
+    if (DUT.instruction !== expected_datapath_out) begin
+        $display("Error. Expected %h. Output was %h", expected_datapath_out, DUT.instruction);
         err = 1;
     end
 
@@ -40,20 +34,16 @@ initial begin
 end
 
 initial begin
-    reset = 1'b1;
-    s = 1'b0;
     load = 1'b0; 
     #10;
-
     in = 16'b1101000100000001; // MOV R1, #1;
     load = 1'b1; 
-    reset=1'b0;
-    s=1'b1;
     #10;
-    load = 1'b0;
-    #50;
+    in = 16'b1101000100000011; // MOV R1, #3;
+    load = 1'b1; 
+    #10;
     
-    mychecker(16'd1); // Expected output for MOV R1, #1 is 1
+    mychecker(16'b1101000100000011); // Expected output
     $stop;
 end
 
