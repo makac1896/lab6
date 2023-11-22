@@ -16,7 +16,7 @@ instruction_register instructionRegister(
     .clk(clk)
 );
 
-Instruction_Decoder Instruction_Decoder(
+Instruction_Decoder instructionDecoder(
   .instruction(instruction),
   .nsel(nsel), //from fsm
   .opcode(opcode), //connect to fsm

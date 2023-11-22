@@ -1,8 +1,8 @@
 `timescale 1ns/1ps
 module datapath_tb;
 reg err=0;
-
 parameter TIME_RESOLUTION = 1ns;
+
 
 //inputs
   reg [2:0] writenum;

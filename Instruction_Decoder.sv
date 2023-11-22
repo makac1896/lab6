@@ -14,18 +14,14 @@ module Instruction_Decoder(
 wire [2:0] Rn, Rd, Rm;
 reg [2:0] num;
 
-
 assign opcode = instruction [15:13];
 assign op = instruction [12:11];
 assign shift = instruction [4:3];
 assign ALUop = instruction [12:11];
 
-
 assign Rn = instruction [10:8];
 assign Rd = instruction [7:5];
 assign Rm = instruction [2:0];
-
-
 
 Mux #(3) muxInDecoder (
   .Rn(Rn),
@@ -39,7 +35,6 @@ assign writenum = num;
 assign readnum = num;
 
 
-
 signExtend8 extend8 (
 	.in(instruction [7:0]), 
 	.sximm8(sximm8)
@@ -51,15 +46,7 @@ signExtend5 extend5 (
 	.sximm5(sximm5)
 );
 
-
-
-
-
 endmodule: Instruction_Decoder
-
-
-
-
 
 
 module Mux(Rn, Rd, Rm, nsel, num);
@@ -81,10 +68,6 @@ module Mux(Rn, Rd, Rm, nsel, num);
 endmodule: Mux
 
 
-
-
-
-
 module signExtend8(in, sximm8);
 
 input [7:0] in;
@@ -93,12 +76,9 @@ reg [16:0] sximm8;
 
 always_comb begin
 	
-	 case(in)
-	 
+	 case(in)	 
 	 8'b0xxxxxxx: sximm8 = {8'b00000000, in};
 	 8'b1xxxxxxx: sximm8 = {8'b11111111, in};
-	 
-	 
 	 endcase
 
   end

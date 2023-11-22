@@ -9,7 +9,8 @@ parameter n = 16;  // width
 
   assign next_out = load ? in : instruction;
 
-  always @(posedge clk)
+  always @(posedge clk) begin
     instruction = next_out;  
+  end
 endmodule
 
