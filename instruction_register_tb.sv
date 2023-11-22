@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module cpu_tb;
+module instruction_register_tb;
 
 parameter TIME_RESOLUTION = 1ns;
 

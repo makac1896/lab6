@@ -35,16 +35,26 @@ assign writenum = num;
 assign readnum = num;
 
 
-signExtend8 extend8 (
-	.in(instruction [7:0]), 
-	.sximm8(sximm8)
+// signExtend8 extend8 (
+// 	.in(instruction [7:0]), 
+// 	.sximm8(sximm8)
+// );
+
+SignExtension #(8,16) extend8(
+  .in(instruction[7:0]),
+  .out(sximm8)
+);
+
+SignExtension #(5,16) extend5(
+  .in(instruction[4:0]),
+  .out(sximm5)
 );
 
 
-signExtend5 extend5 (
-	.in(instruction [4:0]), 
-	.sximm5(sximm5)
-);
+// signExtend5 extend5 (
+// 	.in(instruction [4:0]), 
+// 	.sximm5(sximm5)
+// );
 
 endmodule: Instruction_Decoder
 
@@ -71,8 +81,8 @@ endmodule: Mux
 module signExtend8(in, sximm8);
 
 input [7:0] in;
-output [16:0] sximm8;
-reg [16:0] sximm8;
+output [15:0] sximm8;
+reg [15:0] sximm8;
 
 always_comb begin
 	
@@ -84,6 +94,18 @@ always_comb begin
   end
 endmodule
 
+module SignExtension #(
+  parameter InputWidth  = 8,
+  parameter OutputWidth = 16
+) (
+  input  logic signed [InputWidth-1:0]  in,
+  output logic signed [OutputWidth-1:0] out
+);
+
+  assign out = { {OutputWidth-InputWidth{in[InputWidth-1]}}, in };
+
+endmodule
+
 
 
 
@@ -91,8 +113,8 @@ endmodule
 module signExtend5(in, sximm5);
 
 input [4:0] in;
-output [16:0] sximm5;
-reg [16:0] sximm5;
+output [15:0] sximm5;
+reg [15:0] sximm5;
 
 always_comb begin
 

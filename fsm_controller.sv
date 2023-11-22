@@ -41,10 +41,13 @@ output reg [2:0] writenum, readnum;
 `define CMP 5'b01111
 
 reg [4:0] current_state, next_state;
+wire [4:0] next_state_reset;
 
-always_ff @(clk) begin 
-  current_state <= (reset) ? `waitState : next_state;
+always @(posedge clk) begin
+	current_state = next_state_reset;
 end
+
+assign next_state_reset = reset ? `waitState : next_state; //reset logic
 
 always_comb begin
     case({current_state, s})
@@ -186,7 +189,7 @@ always_comb begin
                 bsel = 1'b0;
                 nsel = 3'b100;
                 vsel = 2'b10;
-                write = 1'b0;
+                write = 1'b1;
                 writenum = 3'b000;
                 readnum = 3'b000;
             end

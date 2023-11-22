@@ -62,7 +62,7 @@ datapath dp(
     .loads(loads),
     .sximm5(sximm5),
     .sximm8(sximm8),
-    .mdata(mdata),
+    .mdata(instruction),
     .PC(PC), //idk where this value is assigned or used 
     .shift(shift),
     .ALUop(AlUop),

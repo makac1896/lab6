@@ -45,12 +45,20 @@ initial begin
     load = 1'b0; 
     #10;
 
-    in = 16'b1101000100000001; // MOV R1, #1;
+    in = 16'b1101000000000111; // MOV R0, #7;
     load = 1'b1; 
     reset=1'b0;
     s=1'b1;
-    #10;
-    load = 1'b0;
+    #50;
+    in = 16'b1101000100000010; // MOV R1, #2;
+    load = 1'b1; 
+    reset=1'b0;
+    s=1'b1;
+    #50;
+    in = 16'b1010000101001000; // ADD R2, R1, R0, LSL#1
+    load = 1'b1; 
+    reset=1'b0;
+    s=1'b1;
     #50;
     
     mychecker(16'd1); // Expected output for MOV R1, #1 is 1
