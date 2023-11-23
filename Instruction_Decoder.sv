@@ -59,6 +59,8 @@ SignExtension #(5,16) extend5(
 endmodule: Instruction_Decoder
 
 
+
+
 module Mux(Rn, Rd, Rm, nsel, num);
   
  parameter n = 3;
@@ -78,6 +80,10 @@ module Mux(Rn, Rd, Rm, nsel, num);
 endmodule: Mux
 
 
+
+
+
+
 module signExtend8(in, sximm8);
 
 input [7:0] in;
@@ -94,6 +100,10 @@ always_comb begin
   end
 endmodule
 
+
+
+
+
 module SignExtension #(
   parameter InputWidth  = 8,
   parameter OutputWidth = 16
@@ -105,6 +115,9 @@ module SignExtension #(
   assign out = { {OutputWidth-InputWidth{in[InputWidth-1]}}, in };
 
 endmodule
+
+
+
 
 
 

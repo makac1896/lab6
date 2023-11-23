@@ -9,6 +9,12 @@ wire [2:0] opcode, writenum, readnum, nsel;
 wire [1:0] op, vsel, shift, ALUop;
 wire loada, loadb, loadc, loads, asel, bsel, write;
 
+
+assign mdata = 16'd0;
+assign PC = 16'd0;
+
+
+
 instruction_register instructionRegister(
     .in(in),
     .load(load),
@@ -47,6 +53,8 @@ fsm_controller FSM(
     .write(write)
 );
 
+
+
 datapath dp(
     .writenum(writenum),
     .readnum(readnum),
@@ -63,10 +71,10 @@ datapath dp(
     .sximm5(sximm5),
     .sximm8(sximm8),
     .mdata(mdata),
-    .PC(PC), //idk where this value is assigned or used ** It's for lab 7, handout said just make it 0
+    .PC(PC), 			//idk where this value is assigned or used ** It's for lab 7, handout said just make it 0
     .shift(shift),
     .ALUop(AlUop),
-    .Z(Z), // add N and V
+    .Z(Z), 			// add N and V
 	 .N(N),
 	 .V(V)
 );
