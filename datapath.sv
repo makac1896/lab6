@@ -17,7 +17,9 @@ module datapath(
   input [15:0] PC,
   input [1:0] shift,
   input [1:0] ALUop,
-  output reg Z_out
+  output N,
+  output V,
+  output Z
 );
 
 //inputs to modules
@@ -29,7 +31,9 @@ reg [15:0] Ain;
 reg [15:0] Bin;
 reg [15:0] out;
 reg [15:0] A3out;
-reg Z;
+
+wire [2:0]status;
+reg [2:0]statusout;
 
 
 // WritebackMultiplexer
@@ -100,20 +104,24 @@ ALU alu_inst (
     .Bin(Bin),
     .ALUop(ALUop),
     .out(out),
-    .Z(Z)
+    .status(status)
 );
 
 // status register
 always_ff @ (posedge clk) begin
 
 	if(loads)
-	 Z_out <= Z;
+	 statusout <= status;
 	 
 	else
-	Z_out <= Z_out;
+	statusout <= statusout;
 
 	
 	end
+	
+assign N = statusout[2];
+assign V = statusout[1];
+assign Z = statusout[0];
 
 
 // To get datapath_out
