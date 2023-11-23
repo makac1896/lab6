@@ -14,7 +14,7 @@ module datapath(
   input [15:0] sximm8,
   input [15:0] sximm5,
   input [15:0] mdata,
-  input [15:0] PC,
+  input [7:0] PC,
   input [1:0] shift,
   input [1:0] ALUop,
   output N,
