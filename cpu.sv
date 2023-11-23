@@ -11,7 +11,7 @@ wire loada, loadb, loadc, loads, asel, bsel, write;
 
 
 assign mdata = 16'd0;
-assign PC = 16'd0;
+assign PC = 8'd0;
 
 
 
