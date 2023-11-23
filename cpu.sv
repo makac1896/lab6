@@ -75,8 +75,8 @@ datapath dp(
     .shift(shift),
     .ALUop(AlUop),
     .Z(Z), 			// add N and V
-	 .N(N),
-	 .V(V)
+	.N(N),
+	.V(V)
 );
 
 endmodule
