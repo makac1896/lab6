@@ -67,7 +67,7 @@ initial begin
     #20; 
     s=1;
     opcode = 3'b101; // Set opcode to AND
-    op = 2'b10; // Set op to an arbitrary value 
+    op = 2'b11; // Set op to an arbitrary value 
     #85
     $stop;
 end
