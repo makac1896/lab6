@@ -26,13 +26,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	cpu_tb
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module fsm_controller_tb
-
-Top level modules:
-	fsm_controller_tb
-
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Instruction_Decoder
@@ -52,6 +45,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	lab6_check
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fsm_controller
+
+Top level modules:
+	fsm_controller
 
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -81,6 +81,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	shifter
 
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module instruction_register
+
+Top level modules:
+	instruction_register
+
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/regfile.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/regfile.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module regfile
@@ -89,12 +96,22 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	regfile
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/datapath.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/datapath.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module instruction_register
+-- Compiling module datapath
+-- Compiling module reg_load
+-- Compiling module source_mux_a
+-- Compiling module source_mux_b
 
 Top level modules:
-	instruction_register
+	datapath
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ALU_tb
+
+Top level modules:
+	ALU_tb
 
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -106,11 +123,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	lab6_top
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/alu_tb.sv
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/cpu.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/cpu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALU_tb
+-- Compiling module cpu
 
 Top level modules:
-	ALU_tb
+	cpu
 
 } {} {}}

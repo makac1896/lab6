@@ -1,4 +1,4 @@
-module fsm_controller(clk, s, reset, opcode, op, nsel, w, loada, loadb,loadc, loads, asel, bsel,vsel, write,writenum, readnum);
+module fsm_controller(clk, s, reset, opcode, op, nsel, w, loada, loadb,loadc, loads, asel, bsel,vsel, write);
 input clk, s, reset;
 input [2:0] opcode;
 input [1:0] op; 
@@ -6,7 +6,6 @@ output reg [1:0] vsel;
 output reg [2:0] nsel; //tbd and might change
 output reg w;
 output reg loada, loadb, loadc, loads, asel, bsel, write;
-output reg [2:0] writenum, readnum;
 
 //define all the states here | 0 and 31
 `define waitState 5'b00000 
@@ -54,10 +53,10 @@ always_comb begin
     {`waitState, 1'b0}: next_state = `waitState; 
     {`waitState, 1'b1}: next_state = `decode;
     {`decode, 1'b1}: next_state = ({opcode, op}==5'b11010) ? `MOV_Write :
+                                  ({opcode, op}==5'b10110) ? `AND_GetA : 
                                   ({opcode, op}==5'b11000) ? `MOV_Rd_GetB :
                                   ({opcode, op}==5'b10100) ? `addGetA :
                                   ({opcode, op}==5'b10101) ? `CMP : //cmp instructions not yet added
-                                  ({opcode, op}==5'b10110) ? `AND_GetA : 
                                   ({opcode, op}==5'b10111) ? `MVN_GetB :
                                   `decode;
     //ADD States
@@ -80,11 +79,12 @@ always_comb begin
     {`MVN_GetB, 1'b1}: next_state = `MVN_MVN;
     {`MVN_MVN, 1'b1}: next_state = `MVN_WriteReg;
     {`MVN_WriteReg, 1'b1}: next_state = `waitState;
-    default: next_state = 6'bxxxxxx;
+    {5'bxxxxx, 1'b0}: next_state = `waitState;
+    default: next_state = 5'bxxxxx;
     endcase
 end
 
-always_comb begin
+always_comb begin 
     case (current_state)
         `waitState:
             begin
@@ -98,10 +98,8 @@ always_comb begin
                 nsel = 3'b000;
                 vsel = 2'b00;
                 write = 1'b0;
-                writenum = 3'b000;
-                readnum = 3'b000;
             end
-          `decode:
+        `decode:
             begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -113,8 +111,6 @@ always_comb begin
                 nsel = 3'b000;
                 vsel = 2'b00;
                 write = 1'b0;
-                writenum = 3'b000;
-                readnum = 3'b000;
             end
         //ADD
         `addGetA:
@@ -129,10 +125,8 @@ always_comb begin
                 nsel = 3'b100;
                 vsel = 2'b00;
                 write = 1'b0;
-                writenum = 3'b000;
-                readnum = 3'b000;
             end
-          `addGetB:
+        `addGetB:
             begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -144,10 +138,8 @@ always_comb begin
                 nsel = 3'b001;
                 vsel = 2'b00;
                 write = 1'b0;
-                writenum = 3'b000;
-                readnum = 3'b000;
             end
-          `addADD:
+        `addADD:
             begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -159,10 +151,8 @@ always_comb begin
                 nsel = 3'b100;
                 vsel = 2'b00;
                 write = 1'b0;
-                writenum = 3'b000;
-                readnum = 3'b000;
             end
-          `addWriteReg:
+        `addWriteReg:
             begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -174,11 +164,9 @@ always_comb begin
                 nsel = 3'b010;
                 vsel = 2'b00;
                 write = 1'b1;
-                writenum = 3'b000;
-                readnum = 3'b000;
             end
           //MOV im8
-          `MOV_Write:
+        `MOV_Write:
           begin
                 w = 1'b0;
                 loada = 1'b0;
@@ -188,28 +176,11 @@ always_comb begin
                 asel = 1'b0;
                 bsel = 1'b0;
                 nsel = 3'b100;
-                vsel = 2'b10;
+                vsel = 2'b00;
                 write = 1'b1;
-                writenum = 3'b000;
-                readnum = 3'b000;
             end
-            //AND
-            `AND_GetA:
-            begin
-                  w = 1'b0;
-                  loada = 1'b1;
-                  loadb = 1'b0;
-                  loadc = 1'b0;
-                  loads = 1'b0;
-                  asel = 1'b0;
-                  bsel = 1'b0;
-                  nsel = 3'b100;
-                  vsel = 2'b11; //idk what this value should be
-                  write = 1'b0;
-                  writenum = 3'b000;
-                  readnum = 3'b000;
-              end
-              `AND_GetB:
+        //AND
+        `AND_GetB:
               begin
                     w = 1'b0;
                     loada = 1'b0;
@@ -221,10 +192,8 @@ always_comb begin
                     nsel = 3'b001;
                     vsel = 2'b11; //idk what this value should be
                     write = 1'b0;
-                    writenum = 3'b000;
-                    readnum = 3'b000;
                 end
-                `AND_AND:
+        `AND_AND:
                 begin
                       w = 1'b0;
                       loada = 1'b0;
@@ -236,10 +205,8 @@ always_comb begin
                       nsel = 3'b000;
                       vsel = 2'b11; //idk what this value should be
                       write = 1'b0;
-                      writenum = 3'b000;
-                      readnum = 3'b000;
                   end
-                  `AND_WriteReg:
+        `AND_WriteReg:
                   begin
                         w = 1'b0;
                         loada = 1'b0;
@@ -251,11 +218,22 @@ always_comb begin
                         nsel = 3'b000;
                         vsel = 2'b00; //idk what this value should be
                         write = 1'b1;
-                        writenum = 3'b000;
-                        readnum = 3'b000;
                     end
+        `AND_GetA:
+            begin
+                  w = 1'b0;
+                  loada = 1'b1;
+                  loadb = 1'b0;
+                  loadc = 1'b0;
+                  loads = 1'b0;
+                  asel = 1'b0;
+                  bsel = 1'b0;
+                  nsel = 3'b100;
+                  vsel = 2'b11; //idk what this value should be
+                  write = 1'bx;
+              end
                 //MVN
-                `MVN_GetB:
+        `MVN_GetB:
                 begin
                       w = 1'b0;
                       loada = 1'b0;
@@ -267,10 +245,8 @@ always_comb begin
                       nsel = 3'b001;
                       vsel = 2'b11; //idk what this value should be
                       write = 1'b0;
-                      writenum = 3'b000;
-                      readnum = 3'b000;
                   end
-                `MVN_MVN:
+        `MVN_MVN:
                 begin
                       w = 1'b0;
                       loada = 1'b0;
@@ -282,10 +258,8 @@ always_comb begin
                       nsel = 3'b000;
                       vsel = 2'b11; //idk what this value should be
                       write = 1'b0;
-                      writenum = 3'b000;
-                      readnum = 3'b000;
                   end
-                `MVN_WriteReg:
+        `MVN_WriteReg:
                 begin
                       w = 1'b0;
                       loada = 1'b0;
@@ -297,11 +271,9 @@ always_comb begin
                       nsel = 3'b010;
                       vsel = 2'b00; //idk what this value should be
                       write = 1'b1;
-                      writenum = 3'b000;
-                      readnum = 3'b000;
                   end
           //MOV rd 
-          `MOV_Rd_GetB:
+        `MOV_Rd_GetB:
                 begin
                       w = 1'b0;
                       loada = 1'b0;
@@ -313,10 +285,8 @@ always_comb begin
                       nsel = 3'b001;
                       vsel = 2'b11; //idk what this value should be
                       write = 1'b0;
-                      writenum = 3'b000;
-                      readnum = 3'b000;
                   end
-            `MOV_Rd_Shift:
+        `MOV_Rd_Shift:
                 begin
                       w = 1'b0;
                       loada = 1'b0;
@@ -328,10 +298,8 @@ always_comb begin
                       nsel = 3'b000;
                       vsel = 2'b11; //idk what this value should be
                       write = 1'b0;
-                      writenum = 3'b000;
-                      readnum = 3'b000;
                   end
-            `MOV_Rd_WriteReg:
+        `MOV_Rd_WriteReg:
                 begin
                       w = 1'b0;
                       loada = 1'b0;
@@ -341,12 +309,10 @@ always_comb begin
                       asel = 1'b0;
                       bsel = 1'b0;
                       nsel = 3'b010;
-                      vsel = 2'b10; //idk what this value should be
+                      vsel = 2'b00; //idk what this value should be
                       write = 1'b1;
-                      writenum = 3'b000;
-                      readnum = 3'b000;
                   end
-          default:
+        default:
           begin
                 w = 1'bx;
                 loada = 1'bx;
@@ -356,10 +322,8 @@ always_comb begin
                 asel = 1'bx;
                 bsel = 1'bx;
                 nsel = 3'bxxx;
-                vsel = 1'bx;
+                vsel = 2'bxx;
                 write = 1'bx;
-                writenum = 3'bxxx;
-                readnum = 3'bxxx;
           end 
     endcase
 end
