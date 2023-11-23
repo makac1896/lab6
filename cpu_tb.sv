@@ -67,7 +67,7 @@ end
 
 
 always @(posedge clk) begin
-  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | out=%b | N=%d | V=%d | Z=%d, w=%d, err=%d
+  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | out=%b | N=%d | V=%d | Z=%d, w=%d, err=%d",
             $time, clk, reset, s, load, in, out, N, V, Z, w, err);
 end
 
