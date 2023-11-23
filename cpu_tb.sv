@@ -8,7 +8,7 @@ reg err = 1'b0;
 reg clk, reset, s, load;
 reg [15:0] in;
 wire [15:0] out;
-wire N, V, Z, W;
+wire N, V, Z, w;
 
 cpu DUT(
     .clk(clk),
@@ -20,7 +20,7 @@ cpu DUT(
     .N(N),
     .V(V),
     .Z(Z),
-    .w(W)
+    .w(w)
 );
 
 task mychecker;
@@ -67,8 +67,8 @@ end
 
 
 always @(posedge clk) begin
-  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | out=%b | N=%d | V=%d | Z=%d, w=%d, err=%d
-            $time, clk, reset, s, load, in, out, N, V, Z, w, err);
+  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | out=%b | N=%d | V=%d | Z=%d, w=%d, err=%d, ALUop=%b, out=%d",
+            $time, clk, reset, s, load, in, out, N, V, Z, w, err, DUT.ALUop, DUT.out);
 end
 
 
