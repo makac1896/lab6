@@ -21,7 +21,8 @@ output reg loada, loadb, loadc, loads, asel, bsel, write;
 `define addWriteReg 5'b00100
 
 //AND Rd,Rn,Rm{,<sh_op>}  | 5-8
-`define AND_GetA 5'b00101 
+// `define AND_GetA 5'b00101
+`define AND_GetA 5'b10101 //MOV_Write uses 5 already
 `define AND_GetB 5'b00110 
 `define AND_AND 5'b00111
 `define AND_WriteReg 5'b01000 
@@ -46,7 +47,7 @@ always @(posedge clk) begin
 	current_state = next_state_reset;
 end
 
-assign next_state_reset = reset ? `waitState : next_state; //reset logic
+assign next_state_reset = (reset==1'b1) ? `waitState : next_state; //reset logic
 
 always_comb begin
     case({current_state, s})
@@ -79,7 +80,6 @@ always_comb begin
     {`MVN_GetB, 1'b1}: next_state = `MVN_MVN;
     {`MVN_MVN, 1'b1}: next_state = `MVN_WriteReg;
     {`MVN_WriteReg, 1'b1}: next_state = `waitState;
-    {5'bxxxxx, 1'b0}: next_state = `waitState;
     default: next_state = 5'bxxxxx;
     endcase
 end
@@ -215,7 +215,7 @@ always_comb begin
                         loads = 1'b0;
                         asel = 1'b0;
                         bsel = 1'b0;
-                        nsel = 3'b000;
+                        nsel = 3'b010;
                         vsel = 2'b00; //idk what this value should be
                         write = 1'b1;
                     end
@@ -229,8 +229,8 @@ always_comb begin
                   asel = 1'b0;
                   bsel = 1'b0;
                   nsel = 3'b100;
-                  vsel = 2'b11; //idk what this value should be
-                  write = 1'bx;
+                  vsel = 2'b00;
+                  write = 1'b0;
               end
                 //MVN
         `MVN_GetB:

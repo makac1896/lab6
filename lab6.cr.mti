@@ -26,6 +26,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	cpu_tb
 
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fsm_controller_tb
+
+Top level modules:
+	fsm_controller_tb
+
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Instruction_Decoder
@@ -46,12 +53,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	lab6_check
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/alu.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/alu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module fsm_controller
+-- Compiling module ALU
 
 Top level modules:
-	fsm_controller
+	ALU
 
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -59,13 +66,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	shifter_tb
-
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/alu.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/alu.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module ALU
-
-Top level modules:
-	ALU
 
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/datapath_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/datapath_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
