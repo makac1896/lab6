@@ -123,6 +123,9 @@ module cpu_tb;
     reset = 0; 
     #10;
 
+	 
+	 
+	 
     // Test MOV instruction
     in = 16'b1101000000000111;
     load = 1;
@@ -139,6 +142,9 @@ module cpu_tb;
       $stop;
     end
 
+	 
+	 
+	
     // Test MOV instruction with a different value
     @(negedge clk); // wait for falling edge of clock before changing inputs
     in = 16'b1101000100000010;
@@ -156,6 +162,11 @@ module cpu_tb;
       $stop;
     end
 
+	 
+	 
+	 
+	 
+	 
     // Test ADD instruction
     @(negedge clk); // wait for falling edge of clock before changing inputs
     in = 16'b1010000101001000;
@@ -173,6 +184,11 @@ module cpu_tb;
       $stop;
     end
 
+	 
+	 
+	 
+	 
+	 
     // Test MVN instruction
     @(negedge clk);
 
@@ -192,6 +208,11 @@ module cpu_tb;
       $stop;
     end
 
+	 
+	 
+	 
+	 
+	 
     // Test CMP instruction
     @(negedge clk);
     in = 16'b1010000101001000;
@@ -209,6 +230,12 @@ module cpu_tb;
       $stop;
     end
 
+	 
+	 
+	 
+	 
+	 
+	 
     // Test AND instruction
     @(negedge clk);
     in = 16'b101_10_001_100_01_000;
