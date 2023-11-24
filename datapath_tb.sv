@@ -9,10 +9,13 @@ parameter TIME_RESOLUTION = 1ns;
   reg write;
   reg [2:0] readnum;
   reg clk;
-  reg [15:0] datapath_in;
-  reg [2:0] vsel;
-  reg [2:0] asel;
-  reg [2:0] bsel;
+  reg [15:0] sximm8;
+  reg [15:0] sximm5;
+  reg [15:0] mdata;
+  reg [7:0] PC;
+  reg [1:0] vsel;
+  reg asel;
+  reg bsel;
   reg loada;
   reg loadb;
   reg loadc;
@@ -21,7 +24,9 @@ parameter TIME_RESOLUTION = 1ns;
   reg [1:0] ALUop;
 
   //outputs
-  wire Z_out;
+  wire Z;
+  wire N;
+  wire V;
   wire [15:0] datapath_out;
 
 
@@ -44,17 +49,23 @@ parameter TIME_RESOLUTION = 1ns;
 
                 // set when "writing back" to register file
                 .writenum    (writenum),
-                .write       (write),  
-                .datapath_in (datapath_in),
+                .write       (write),
+					 .sximm8      (sximm8),
+					 .sximm5      (sximm5),
+					 .mdata       (mdata),
+					 .PC       	  (PC),
+                
 
                 // outputs
-                .Z_out       (Z_out),
+                .Z     (Z),
+					 .N     (N),
+					 .V     (V),
                 .datapath_out(datapath_out)
 
              );
 
 task  mychecker;
- input expected_Z_out;
+ input expected_Z;
  input [15:0] expected_datapath_out;
 
 
@@ -63,8 +74,8 @@ task  mychecker;
     err=1;
  end
 
- if(DUT.Z_out !== expected_Z_out) begin
-    $display("Error. Expected %b. Output was %b", expected_Z_out, datapath_tb.Z_out);
+ if(DUT.Z !== expected_Z) begin
+    $display("Error. Expected %b. Output was %b", expected_Z, datapath_tb.Z);
     err=1;
  end
 
@@ -80,11 +91,14 @@ initial begin
  
 initial begin
     //Instruction 1: MOV R0, #7
+sximm5 = 16'd0;	 
+mdata = 16'd0;
+PC = 8'd0;	 
 
-vsel = 1; #5
+vsel = 2'b10; #5
 write =1; #5
 writenum = 3'd0; #5
-datapath_in = 16'd7; #5
+sximm8 = 16'd7; #5
 
 readnum = 3'd0; #5
 
@@ -103,10 +117,10 @@ readnum = 3'd0; #5
 
      //Instruction 2: MOV R1, #2 (and make datapath_out == 2*R1(not used))
  
- vsel = 1; #5
+ vsel = 2'b10; #5
 write =1; #5
 writenum = 3'd1; #5
-datapath_in = 16'd2; #5
+sximm8 = 16'd2; #5
 
 readnum = 3'd1; #5
 
@@ -124,14 +138,14 @@ readnum = 3'd1; #5
 
 //Instruction 3: (R1 + R0(LSL #2))
  
-vsel = 1;
+vsel = 2'b10;
 write =0;
 shift = 2'b01;
 #5
 loada =0;
 #5
 //writenum = 3'd1; #5
-//datapath_in = 16'd2; #5
+//sximm8 = 16'd2; #5
  readnum = 3'd0;
  loadb =1;
 #1
@@ -147,12 +161,12 @@ loads =0;
 
 
 //Instruction 3: R2 =(R1 + R0(LSL #2))
-    vsel = 0; #5
+    vsel = 2'b00; #5
 write =1; #5
 writenum = 3'd2; #5
 
 
-# 10
+# 90
 
 
 
@@ -162,8 +176,8 @@ writenum = 3'd2; #5
 
 
    
-    // $display("Checking RISC Instruction");
-    // mychecker(16'b000100000, 1'b1);
+    $display("Checking RISC Instruction");
+    mychecker(.expected_Z(1'b0), .expected_datapath_out(16'd16));
 
 
 
@@ -190,8 +204,8 @@ end
 
 
 always @(posedge clk) begin
-  $display("Time = %t | writenum=%d | write=%d | readnum=%d | datapath_in=%d | vsel=%d | asel=%d | bsel=%d | loada=%d | loadb=%d | loadc=%d | loads=%d | shift=%d | ALUop=%d | Z_out=%d | datapath_out=%d",
-            $time, writenum, write, readnum, datapath_in, vsel, asel, bsel, loada, loadb, loadc, loads, shift, ALUop, Z_out, datapath_out);
+  $display("Time = %t | writenum=%d | write=%d | readnum=%d | sximm8=%d | sximm5=%d | mdata=%d | PC=%d | vsel=%b | asel=%d | bsel=%d | loada=%d | loadb=%d | loadc=%d | loads=%d | shift=%b | ALUop=%b | Z=%d | N=%d | V=%d | datapath_out=%d, err=%b",
+            $time, writenum, write, readnum, sximm8, sximm5, mdata, PC, vsel, asel, bsel, loada, loadb, loadc, loads, shift, ALUop, Z, N, V, datapath_out, err);
 end
 
 endmodule

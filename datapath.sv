@@ -14,7 +14,7 @@ module datapath(
   input [15:0] sximm8,
   input [15:0] sximm5,
   input [15:0] mdata,
-  input [15:0] PC,
+  input [7:0] PC,
   input [1:0] shift,
   input [1:0] ALUop,
   output N,
@@ -39,20 +39,14 @@ reg [2:0] statusout;
 // WritebackMultiplexer
 // edit due to datapath_in***
 
-// always_comb begin
-// 	case(vsel)
-// 	00: data_in = datapath_out;
-// 	01: data_in = {8'b0, PC};
-// 	10: data_in = sximm8;
-// 	11: data_in = mdata;	
-// 	endcase
-// end
-
-assign data_in = (vsel == 2'b00) ? datapath_out :
-                (vsel == 2'b01) ? {8'b0, PC} :
-                (vsel == 2'b10) ? sximm8 :
-                (vsel == 2'b11) ? mdata : 16'b0; // Default assignment if none of the conditions match
-
+always_comb begin
+	case(vsel)
+	00: data_in = datapath_out;
+	01: data_in = {8'b0, PC};
+	10: data_in = sximm8;
+	11: data_in = mdata;	
+	endcase
+end 
 
 //instantiate register file
 regfile REGFILE (
@@ -168,6 +162,8 @@ output [15:0] out;
 
 assign out = (sel) ? 16'b0 : in;
 endmodule
+
+
 
 module source_mux_b(bsel, data_input,shifter_output, data_out);
 input bsel;
