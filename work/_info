@@ -10,7 +10,7 @@ cModel Technology
 dC:/intelFPGA_lite/18.1
 vALU
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1700793986
+Z1 !s110 1700802831
 !i10b 1
 !s100 fdc9a60B7?z@`E^5o_P@o1
 I=o@ab4W<_Z_WS[G;FZ_j90
@@ -26,7 +26,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1700793986.000000
+Z5 !s108 1700802831.000000
 !s107 C:/Users/makac/cpen-211/lab6/lab6/alu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/alu.sv|
 !i113 1
@@ -60,7 +60,7 @@ R7
 n@a@l@u_tb
 vcpu
 R0
-Z8 !s110 1700793987
+Z8 !s110 1700802833
 !i10b 1
 !s100 @ZAAm]=a:ToNbdo=`<8:S1
 ISCUCCa>33J9fJ1m9HCT0H2
@@ -68,7 +68,7 @@ R2
 !s105 cpu_sv_unit
 S1
 R3
-w1700791834
+w1700794311
 8C:/Users/makac/cpen-211/lab6/lab6/cpu.sv
 FC:/Users/makac/cpen-211/lab6/lab6/cpu.sv
 L0 1
@@ -76,7 +76,7 @@ R4
 r1
 !s85 0
 31
-Z9 !s108 1700793987.000000
+Z9 !s108 1700802833.000000
 !s107 C:/Users/makac/cpen-211/lab6/lab6/cpu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/cpu.sv|
 !i113 1
@@ -86,13 +86,13 @@ vcpu_tb
 R0
 R8
 !i10b 1
-!s100 ^BaW?]A5O=6a5dm<2DJnL2
-I4bP^5dEDFT4XiS`@H6ijP2
+!s100 VOBOlI6c4Pk6U6e@gMfaQ0
+IW@fN`[fLcL6MCRL1k5Ok^3
 R2
 !s105 cpu_tb_sv_unit
 S1
 R3
-w1700793697
+w1700794202
 8C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv
 FC:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv
 L0 1
@@ -156,15 +156,15 @@ R6
 R7
 vfsm_controller
 R0
-R1
+Z16 !s110 1700802832
 !i10b 1
-!s100 kJloHiL1?aC9WD32OP:?@0
-ID2aW2m]a?KB_Dedz<K9:Y1
+!s100 BkFhnTz2CA`eKW:02l3H12
+IizaK8M>AEU28@FgMZ7O6J0
 R2
 !s105 fsm_controller_sv_unit
 S1
 R3
-w1700793978
+w1700802820
 8C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
 FC:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
 L0 1
@@ -180,7 +180,7 @@ R6
 R7
 vfsm_controller_tb
 R0
-R8
+R16
 !i10b 1
 !s100 joM5?eZKMfdl4GAe11QMU2
 IDnimCPdHU0gaZ<KNW[SQ[3
@@ -196,7 +196,7 @@ R4
 r1
 !s85 0
 31
-R9
+Z17 !s108 1700802832.000000
 !s107 C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv|
 !i113 1
@@ -204,47 +204,47 @@ R6
 R7
 vinput_iface
 R0
-R8
+R16
 !i10b 1
 !s100 nE<>iUc1RQoXZ7BTY4A=e1
 ICfEnVm<ZjlRo_DIk0WzCQ3
 R2
-Z16 !s105 lab6_top_sv_unit
+Z18 !s105 lab6_top_sv_unit
 S1
 R3
-Z17 w1700746325
-Z18 8C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
-Z19 FC:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
+Z19 w1700746325
+Z20 8C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
+Z21 FC:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
 L0 68
 R4
 r1
 !s85 0
 31
-R9
-Z20 !s107 C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv|
-Z21 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv|
+R17
+Z22 !s107 C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv|
+Z23 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv|
 !i113 1
 R6
 R7
 vInstruction_Decoder
 R0
-Z22 !s110 1700793988
+R8
 !i10b 1
 !s100 bk3QlUG[Uk@=QlfHSFR0H3
 IPnZ=H`Vf0e;>W?iE0LKB_0
 R2
-Z23 !s105 Instruction_Decoder_sv_unit
+Z24 !s105 Instruction_Decoder_sv_unit
 S1
 R3
-Z24 w1700729117
-Z25 8C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
-Z26 FC:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
+Z25 w1700729117
+Z26 8C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
+Z27 FC:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
 L0 1
 R4
 r1
 !s85 0
 31
-Z27 !s108 1700793988.000000
+R9
 Z28 !s107 C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv|
 Z29 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv|
 !i113 1
@@ -253,7 +253,7 @@ R7
 n@instruction_@decoder
 vinstruction_decoder_tb
 R0
-R22
+R8
 !i10b 1
 !s100 9:Sf?aDiFfWQ>F]5a_Zbh0
 IPTPiXQzb?BcGnhNLFPoAQ3
@@ -269,7 +269,7 @@ R4
 r1
 !s85 0
 31
-R27
+R9
 !s107 C:/Users/makac/cpen-211/lab6/lab6/instruction_decoder_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/instruction_decoder_tb.sv|
 !i113 1
@@ -301,7 +301,7 @@ R6
 R7
 vinstruction_register_tb
 R0
-R22
+R8
 !i10b 1
 !s100 FYm5[;EK39aGD=0jJIGA81
 IjcIm]NmHZ>=6J8hlf:`f33
@@ -317,7 +317,7 @@ R4
 r1
 !s85 0
 31
-R27
+R9
 !s107 C:/Users/makac/cpen-211/lab6/lab6/instruction_register_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/instruction_register_tb.sv|
 !i113 1
@@ -374,7 +374,7 @@ R6
 R7
 vlab6_check
 R0
-R8
+R16
 !i10b 1
 !s100 Tgf2J]3Ob6:nkO8NcEL0I1
 I_5:YdKV7<gNSifnMRam]10
@@ -390,7 +390,7 @@ R4
 r1
 !s85 0
 31
-R9
+R17
 !s107 C:\Users\makac\cpen-211\lab6\lab6\lab6_autograder_check.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:\Users\makac\cpen-211\lab6\lab6\lab6_autograder_check.sv|
 !i113 1
@@ -398,47 +398,47 @@ R6
 R7
 vlab6_top
 R0
-R8
+R16
 !i10b 1
 !s100 [>Kz[BaFQ3n^A;62HG2^^1
 IKB<nab7V1;>3<5Feo1f_@3
 R2
-R16
+R18
 S1
 R3
-R17
-R18
 R19
+R20
+R21
 L0 32
 R4
 r1
 !s85 0
 31
-R9
-R20
-R21
+R17
+R22
+R23
 !i113 1
 R6
 R7
 vMux
 R0
-R22
+R8
 !i10b 1
 !s100 ;5g]6WT`a`06@LJNMVFUZ2
 ImS9<1ETb69l38MVRFZf=83
 R2
-R23
+R24
 S1
 R3
-R24
 R25
 R26
+R27
 L0 65
 R4
 r1
 !s85 0
 31
-R27
+R9
 R28
 R29
 !i113 1
@@ -519,7 +519,7 @@ R6
 R7
 vregfile
 R0
-R8
+R16
 !i10b 1
 !s100 OR1NUDoSlJolKkBm5EJ2;0
 I_zJ[9FTnG:JdjV`g_e>YP2
@@ -535,7 +535,7 @@ R4
 r1
 !s85 0
 31
-R9
+R17
 Z40 !s107 C:/Users/makac/cpen-211/lab6/lab6/regfile.sv|
 Z41 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/regfile.sv|
 !i113 1
@@ -543,7 +543,7 @@ R6
 R7
 vregfile_load
 R0
-R8
+R16
 !i10b 1
 !s100 YPe]`GmBGM_@Rcbl0O]_B2
 ICmj5ZiMMNNkAI3H_;En;h2
@@ -559,7 +559,7 @@ R4
 r1
 !s85 0
 31
-R9
+R17
 R40
 R41
 !i113 1
@@ -567,7 +567,7 @@ R6
 R7
 vregfile_tb
 R0
-R8
+R16
 !i10b 1
 !s100 U0O_9ZTK4QEXX]b`JXi`V1
 I@RWbl>9L<gMDH[H>QizYZ0
@@ -583,7 +583,7 @@ R4
 r1
 !s85 0
 31
-R9
+R17
 !s107 C:/Users/makac/cpen-211/lab6/lab6/regfile_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/regfile_tb.sv|
 !i113 1
@@ -591,7 +591,7 @@ R6
 R7
 vshifter
 R0
-R8
+R16
 !i10b 1
 !s100 j43afIg?kzOcBHjEcl2@_1
 IT>i_SS^GCQP<I_mHcLX]c0
@@ -607,7 +607,7 @@ R4
 r1
 !s85 0
 31
-R9
+R17
 !s107 C:/Users/makac/cpen-211/lab6/lab6/shifter.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/shifter.sv|
 !i113 1
@@ -615,7 +615,7 @@ R6
 R7
 vshifter_tb
 R0
-R8
+R16
 !i10b 1
 !s100 6PgVkN^LmbaVY[6G36ElR3
 InZ]30PLDeKf7lVfAFbjB^3
@@ -631,7 +631,7 @@ R4
 r1
 !s85 0
 31
-R9
+R17
 !s107 C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|C:/Users/makac/cpen-211/lab6/lab6/shifter_tb.sv|
 !i113 1
@@ -639,23 +639,23 @@ R6
 R7
 vsignExtend5
 R0
-R22
+R8
 !i10b 1
 !s100 jZa=1340d?JGI1UY=H_OQ1
 IoXSNOJ?E=>[g98^fhRGoK2
 R2
-R23
+R24
 S1
 R3
-R24
 R25
 R26
+R27
 L0 127
 R4
 r1
 !s85 0
 31
-R27
+R9
 R28
 R29
 !i113 1
@@ -664,23 +664,23 @@ R7
 nsign@extend5
 vsignExtend8
 R0
-R22
+R8
 !i10b 1
 !s100 BTgKENh^>JVM@WRO<nRkK2
 IM<Fc4UV36RlPP_EanY@RW2
 R2
-R23
+R24
 S1
 R3
-R24
 R25
 R26
+R27
 L0 88
 R4
 r1
 !s85 0
 31
-R27
+R9
 R28
 R29
 !i113 1
@@ -689,23 +689,23 @@ R7
 nsign@extend8
 vSignExtension
 R0
-R22
+R8
 !i10b 1
 !s100 2_?[b1^W^dEYjcf?=cQI71
 I6mM8zTGgnoTZN45;FGZ1:1
 R2
-R23
+R24
 S1
 R3
-R24
 R25
 R26
+R27
 L0 108
 R4
 r1
 !s85 0
 31
-R27
+R9
 R28
 R29
 !i113 1
@@ -762,49 +762,49 @@ R6
 R7
 vsseg
 R0
-R8
+R16
 !i10b 1
 !s100 g3XeVMF:bFBz;Z]82VW=E3
 IiFVln4;D1I?Z1]XLEBZEB2
 R2
-R16
+R18
 S1
 R3
-R17
-R18
 R19
+R20
+R21
 L0 96
 R4
 r1
 !s85 0
 31
-R9
-R20
-R21
+R17
+R22
+R23
 !i113 1
 R6
 R7
 vvDFF
 R0
-R8
+R16
 !i10b 1
 !s100 W^Eg0=nzhAPaf[HIhfDbB2
 I6`Da_NA_iMT_iTGcWnG9G0
 R2
-R16
+R18
 S1
 R3
-R17
-R18
 R19
+R20
+R21
 L0 79
 R4
 r1
 !s85 0
 31
-R9
-R20
-R21
+R17
+R22
+R23
 !i113 1
 R6
 R7

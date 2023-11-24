@@ -30,4 +30,5 @@ Additionally, use the following state encoding:
 - `CMP`: 4'b1010
 - `AND`: 4'b1011
 
-Compose a concise AI prompt instructing the model to generate optimized Verilog code for the FSM based on the provided states and encoding. Ensure that the generated code is well-structured, minimizes repeated logic, and provides clear state transitions.
+Compose a concise template for instructing the model to generate optimized System Verilog code for the FSM based on the provided states and encoding. Ensure that the generated code is well-structured, minimizes repeated logic, and provides clear state transitions.
+Code should use concatenation where possible and avoid repeated states. 
