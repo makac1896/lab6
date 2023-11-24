@@ -122,11 +122,16 @@ module cpu_tb;
     #10;
     reset = 0; 
     #10;
-
 	 
 	 
 	 
-    // Test MOV instruction
+	 
+	 
+	 
+	 
+	 
+	 
+    // Test MOV #<im8> instruction
     in = 16'b1101000000000111;
     load = 1;
     #10;
@@ -135,7 +140,7 @@ module cpu_tb;
     #10
     s = 0;
     @(posedge w); // wait for w to go high again
-    #10;
+    #200;
     if (cpu_tb.DUT.DP.REGFILE.R0 !== 16'h7) begin
       err = 1;
       $display("FAILED: MOV R0, #7");
@@ -153,7 +158,7 @@ module cpu_tb;
     #10
     s = 0;
     @(posedge w); // wait for w to go high again
-    #10;
+    #200;
     if (cpu_tb.DUT.DP.REGFILE.R1 !== 16'd10) begin
       err = 1;
       $display("FAILED: MOV R1, #10");
@@ -171,10 +176,33 @@ module cpu_tb;
     #10
     s = 0;
     @(posedge w); // wait for w to go high again
-    #10;
+    #200;
     if (cpu_tb.DUT.DP.REGFILE.R1 !== 16'd2) begin
       err = 1;
       $display("FAILED: MOV R1, #2");
+      $stop;
+    end
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 // Test MOV to Reg instruction
+	 @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b110_00_000_101_00_001;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w); // wait for w to go high again
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R5 !== 16'd2) begin
+      err = 1;
+      $display("FAILED: MOV R5, R1");
       $stop;
     end
 
@@ -437,8 +465,8 @@ module cpu_tb;
 
 
   always @(posedge clk) begin
-  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | datapath_out=%d | N=%d | V=%d | Z=%d, w=%d, err=%d, ALUop=%b, reg_out=%d, asel=%d, write=%d, shift=%b, R2=%b",
-            $time, clk, reset, s, load, in, $signed(out), N, V, Z, w, err, DUT.ALUop, $signed(DUT.out), DUT.asel,DUT.write, DUT.shift, DUT.DP.REGFILE.R2);
+  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | datapath_out=%d | N=%d | V=%d | Z=%d, w=%d, err=%d, ALUop=%b, reg_out=%d, asel=%d, write=%d, shift=%b, R5=%d, R1=%d",
+            $time, clk, reset, s, load, in, $signed(out), N, V, Z, w, err, DUT.ALUop, $signed(DUT.out), DUT.asel,DUT.write, DUT.shift, DUT.DP.REGFILE.R5, DUT.DP.REGFILE.R1);
 end
 
 endmodule
