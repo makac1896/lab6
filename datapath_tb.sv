@@ -27,7 +27,7 @@ parameter TIME_RESOLUTION = 1ns;
   wire Z;
   wire N;
   wire V;
-  wire [15:0] datapath_out;
+  wire signed [15:0] datapath_out;
 
 
 
