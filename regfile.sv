@@ -2,7 +2,7 @@ module regfile(data_in, writenum, write, readnum, clk, data_out);
   input [15:0] data_in;
   input [2:0] writenum, readnum;
   input write, clk;
-  output reg [15:0] data_out;
+  output [15:0] data_out;
   
   wire [7:0] onehotWrite;
   wire [7:0] onehotRead;
@@ -72,19 +72,30 @@ regfile_load #(16) load7(
   
   // implement multiplexer for reading
 
-  always @(*)begin //multiplexer for 8 registers
-        case(onehotRead) 
-        8'b00000001: data_out = R0;
-        8'b00000010: data_out = R1;
-        8'b00000100: data_out = R2;
-        8'b00001000: data_out = R3;
-        8'b00010000: data_out = R4;
-        8'b00100000: data_out = R5;
-        8'b01000000: data_out = R6;
-        8'b10000000: data_out = R7;
-        default : data_out = 16'bxxxxxxxxxxxxxxxx;
-        endcase
- end
+//   always @(*)begin //multiplexer for 8 registers
+//         case(onehotRead) 
+//         8'b00000001: data_out = R0;
+//         8'b00000010: data_out = R1;
+//         8'b00000100: data_out = R2;
+//         8'b00001000: data_out = R3;
+//         8'b00010000: data_out = R4;
+//         8'b00100000: data_out = R5;
+//         8'b01000000: data_out = R6;
+//         8'b10000000: data_out = R7;
+//         default : data_out = 16'bxxxxxxxxxxxxxxxx;
+//         endcase
+//  end
+
+assign data_out = (onehotRead == 8'b00000001) ? R0 :
+                  (onehotRead == 8'b00000010) ? R1 :
+                  (onehotRead == 8'b00000100) ? R2 :
+                  (onehotRead == 8'b00001000) ? R3 :
+                  (onehotRead == 8'b00010000) ? R4 :
+                  (onehotRead == 8'b00100000) ? R5 :
+                  (onehotRead == 8'b01000000) ? R6 :
+                  (onehotRead == 8'b10000000) ? R7 :
+                  16'bxxxxxxxxxxxxxxxx;
+
 
 endmodule: regfile
 

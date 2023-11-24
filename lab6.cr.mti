@@ -19,14 +19,28 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	instruction_decoder_tb
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv {0 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module cpu_tb
-** Warning: C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv(70): (vlog-2643) Unterminated string literal continues onto next line.
-** Error: C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv(77): Unterminated string literal started on line 70.
-** Error: (vlog-13069) C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv(77): near "EOF": syntax error, unexpected end of source code, expecting ')' or ','.
 
-} {5.0 7.0} {}} C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
+Top level modules:
+	cpu_tb
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fsm_controller_tb
+
+Top level modules:
+	fsm_controller_tb
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/lab6_autograder_check.sv {1 {vlog -work work -sv -stats=none {C:\Users\makac\cpen-211\lab6\lab6\lab6_autograder_check.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module lab6_check
+
+Top level modules:
+	lab6_check
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module Instruction_Decoder
 -- Compiling module Mux
@@ -38,20 +52,6 @@ Top level modules:
 	Instruction_Decoder
 	signExtend8
 	signExtend5
-
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/lab6_autograder_check.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/lab6_autograder_check.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module lab6_check
-
-Top level modules:
-	lab6_check
-
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module fsm_controller
-
-Top level modules:
-	fsm_controller
 
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/alu.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/alu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -81,13 +81,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	shifter
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module instruction_register
-
-Top level modules:
-	instruction_register
-
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/regfile.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/regfile.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module regfile
@@ -95,6 +88,23 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	regfile
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/instruction_register.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module instruction_register
+
+Top level modules:
+	instruction_register
+
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module lab6_top
+-- Compiling module input_iface
+-- Compiling module vDFF
+-- Compiling module sseg
+
+Top level modules:
+	lab6_top
 
 } {} {}} C:/Users/makac/cpen-211/lab6/lab6/datapath.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/datapath.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -113,14 +123,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	ALU_tb
 
-} {} {}} C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv
+} {} {}} C:/Users/makac/cpen-211/lab6/lab6/cpu.sv {1 {vlog -work work -sv -stats=none C:/Users/makac/cpen-211/lab6/lab6/cpu.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module lab6_top
--- Compiling module input_iface
--- Compiling module vDFF
--- Compiling module sseg
+-- Compiling module cpu
 
 Top level modules:
-	lab6_top
+	cpu
 
 } {} {}}

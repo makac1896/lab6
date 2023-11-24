@@ -18,6 +18,7 @@ assign opcode = instruction [15:13];
 assign op = instruction [12:11];
 assign shift = instruction [4:3];
 assign ALUop = instruction [12:11];
+// assign ALUop = instruction [12:11];
 
 assign Rn = instruction [10:8];
 assign Rd = instruction [7:5];

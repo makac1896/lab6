@@ -1,6 +1,6 @@
 module instruction_register(in, load, instruction, clk);
 
-parameter n = 16;  // width
+  parameter n = 16;  // width
   input clk, load ;
   input  [n-1:0] in ;
   output [n-1:0] instruction ;

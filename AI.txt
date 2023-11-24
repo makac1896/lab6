@@ -1,0 +1,33 @@
+Prompt:
+
+You are designing a Finite State Machine (FSM) for a CPU controller in Verilog. The FSM should have the following states and functionalities:
+
+1. `Wait`: Initial state, idle, waiting for instructions.
+2. `Decode`: Decodes the instruction and determines the next state.
+3. `GetLoadA`: Loads data for operand A.
+4. `GetLoadB`: Loads data for operand B.
+5. `WriteReg`: Writes the result to the register file.
+6. `SxImm8Write`: Writes an immediate value to the register file.
+7. `GetLoadC`: Loads data for operand C.
+8. `Add`: Performs an addition operation.
+9. `MVN`: Performs a bitwise NOT operation.
+10. `ADD`: Another state for addition (you might want to check this, as it seems duplicated in your provided list).
+11. `CMP`: Compares two values.
+12. `AND`: Performs a bitwise AND operation.
+
+Additionally, use the following state encoding:
+
+- `Wait`: 4'b0000
+- `Decode`: 4'b0001
+- `GetLoadA`: 4'b0010
+- `GetLoadB`: 4'b0011
+- `WriteReg`: 4'b0100
+- `SxImm8Write`: 4'b0110
+- `GetLoadC`: 4'b0111
+- `Add`: 4'b0101
+- `MVN`: 4'b1000
+- `ADD`: 4'b1001
+- `CMP`: 4'b1010
+- `AND`: 4'b1011
+
+Compose a concise AI prompt instructing the model to generate optimized Verilog code for the FSM based on the provided states and encoding. Ensure that the generated code is well-structured, minimizes repeated logic, and provides clear state transitions.

@@ -9,7 +9,7 @@ module ALU (
 input [15:0] Ain, Bin;
 input [1:0] ALUop;
 output reg [15:0] out;
-output [2:0]status;
+output [2:0] status;
 
 wire Z;
 wire N;

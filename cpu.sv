@@ -13,9 +13,7 @@ wire loada, loadb, loadc, loads, asel, bsel, write;
 assign mdata = 16'd0;
 assign PC = 8'd0;
 
-
-
-instruction_register instructionRegister(
+instruction_register #(16) instructionRegister(
     .in(in),
     .load(load),
     .instruction(instruction),
@@ -55,7 +53,7 @@ fsm_controller FSM(
 
 
 
-datapath dp(
+datapath DP(
     .writenum(writenum),
     .readnum(readnum),
     .write(write),
@@ -73,7 +71,7 @@ datapath dp(
     .mdata(mdata),
     .PC(PC), 			//idk where this value is assigned or used ** It's for lab 7, handout said just make it 0
     .shift(shift),
-    .ALUop(AlUop),
+    .ALUop(op),
     .Z(Z), 			// add N and V
 	.N(N),
 	.V(V)
