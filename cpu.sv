@@ -9,10 +9,11 @@ wire [2:0] opcode, writenum, readnum, nsel;
 wire [1:0] op, vsel, shift, ALUop;
 wire loada, loadb, loadc, loads, asel, bsel, write;
 
-
+//not used in this lab, to be added in Lab 7
 assign mdata = 16'd0;
 assign PC = 8'd0;
 
+//register instantiation
 instruction_register #(16) instructionRegister(
     .in(in),
     .load(load),
@@ -20,6 +21,7 @@ instruction_register #(16) instructionRegister(
     .clk(clk)
 );
 
+//decoder instantiation
 Instruction_Decoder instructionDecoder(
   .instruction(instruction),
   .nsel(nsel), //from fsm
@@ -33,6 +35,7 @@ Instruction_Decoder instructionDecoder(
   .ALUop(ALUop) //to dp
 );
 
+//controller instantiation
 fsm_controller FSM(
     .clk(clk),
     .s(s),
@@ -52,7 +55,7 @@ fsm_controller FSM(
 );
 
 
-
+//datapath instantiation
 datapath DP(
     .writenum(writenum),
     .readnum(readnum),
