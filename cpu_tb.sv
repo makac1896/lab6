@@ -141,13 +141,11 @@ module cpu_tb;
       $display("FAILED: MOV R0, #7");
       $stop;
     end
-
 	 
 	 
-	
-    // Test MOV instruction with a different value
-    @(negedge clk); // wait for falling edge of clock before changing inputs
-    in = 16'b1101000100000010;
+	 
+	 @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b110_10_001_00001010;
     load = 1;
     #10;
     load = 0;
@@ -156,7 +154,25 @@ module cpu_tb;
     s = 0;
     @(posedge w); // wait for w to go high again
     #10;
-    if (cpu_tb.DUT.DP.REGFILE.R1 !== 16'h2) begin
+    if (cpu_tb.DUT.DP.REGFILE.R1 !== 16'd10) begin
+      err = 1;
+      $display("FAILED: MOV R1, #10");
+      $stop;
+    end
+
+	 
+	 
+    @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b110_10_001_00000010;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w); // wait for w to go high again
+    #10;
+    if (cpu_tb.DUT.DP.REGFILE.R1 !== 16'd2) begin
       err = 1;
       $display("FAILED: MOV R1, #2");
       $stop;
@@ -167,9 +183,11 @@ module cpu_tb;
 	 
 	 
 	 
+	 
+	 
     // Test ADD instruction
-    @(negedge clk); // wait for falling edge of clock before changing inputs
-    in = 16'b1010000101001000;
+	 @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b101_00_000_010_10_001;
     load = 1;
     #10;
     load = 0;
@@ -177,8 +195,43 @@ module cpu_tb;
     #10
     s = 0;
     @(posedge w); // wait for w to go high again
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R2 !== 16'd8) begin
+      err = 1;
+      $display("FAILED: ADD R2, R0, R1, RSL#1");
+      $stop;
+    end
+	 
+	 
+	 @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b101_00_001_010_00_000;
+    load = 1;
     #10;
-    if (cpu_tb.DUT.DP.REGFILE.R2 !== 16'h10) begin
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w); // wait for w to go high again
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R2 !== 16'd9) begin
+      err = 1;
+      $display("FAILED: ADD R2, R1, R0");
+      $stop;
+    end
+	 
+	 
+	 
+    @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b101_00_001_010_01_000;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w); // wait for w to go high again
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R2 !== 16'd16) begin
       err = 1;
       $display("FAILED: ADD R2, R1, R0, LSL#1");
       $stop;
@@ -189,9 +242,10 @@ module cpu_tb;
 	 
 	 
 	 
+	 
+	 
     // Test MVN instruction
     @(negedge clk);
-
     in = 16'b101_11_000_011_01_001;
     load = 1;
     #50;
@@ -207,7 +261,47 @@ module cpu_tb;
       $display("FAILED: MVN R3, R1, LSL#1");
       $stop;
     end
+	 
+	 
+	 @(negedge clk);
+    in = 16'b101_11_000_011_00_010;
+    load = 1;
+    #50;
+    load = 0;
+	 #10
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w);
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R3 !== 16'b1111111111110000) begin
+      err = 1;
+      $display("FAILED: MVN R3, R2");
+      $stop;
+    end
+	 
+	 
+	 @(negedge clk);
+    in = 16'b101_11_000_011_10_000;
+    load = 1;
+    #50;
+    load = 0;
+	 #10
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w);
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R3 !== 16'b1111111111111101) begin
+      err = 1;
+      $display("FAILED: MVN R3, R0, RSL#1");
+      $stop;
+    end
 
+	 
+	 
+	 
+	 
 	 
 	 
 	 
@@ -215,7 +309,7 @@ module cpu_tb;
 	 
     // Test CMP instruction
     @(negedge clk);
-    in = 16'b1010000101001000;
+    in = 16'b101_01_010_000_01_000;
     load = 1;
     #10;
     load = 0;
@@ -223,13 +317,53 @@ module cpu_tb;
     #10
     s = 0;
     @(posedge w);
-    #10;
-    if (~Z) begin
+    #200;
+    if (N) begin
       err = 1;
-      $display("FAILED: CMP R2, R1, R0, LSL#1");
+      $display("FAILED: CMP R2, R0, LSL#1");
+      $stop;
+    end
+	 
+	 
+	 
+	 @(negedge clk);
+    in = 16'b101_01_011_000_00_000;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w);
+    #200;
+    if (V || ~N) begin
+      err = 1;
+      $display("FAILED: CMP R3, R0");
+      $stop;
+    end
+	 
+	 
+	 @(negedge clk);
+    in = 16'b101_01_010_000_10_001;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w);
+    #200;
+    if (N) begin
+      err = 1;
+      $display("FAILED: CMP R2, R1, RSL#1");
       $stop;
     end
 
+	 
+	 
+	 
+	 
+	 
 	 
 	 
 	 
@@ -246,21 +380,65 @@ module cpu_tb;
     #10
     s = 0;
     @(posedge w);
-    #10;
+    #200;
     if (cpu_tb.DUT.DP.REGFILE.R4 !== 16'd2) begin
       err = 1;
       $display("FAILED: AND R4, R1, R0, LSL#1");
       $stop;
     end
+	 
+	 
+	 @(negedge clk);
+    in = 16'b101_10_001_100_10_000;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w);
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R4 !== 16'd2) begin
+      err = 1;
+      $display("FAILED: AND R4, R1, R0, RSL#1");
+      $stop;
+    end
+	 
+	 
+	 @(negedge clk);
+    in = 16'b101_10_001_011_00_000;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w);
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R3 !== 16'd2) begin
+      err = 1;
+      $display("FAILED: AND R3, R1, R0");
+      $stop;
+    end
 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
     if (~err) $display("INTERFACE OK");
     $stop;
   end
 
 
   always @(posedge clk) begin
-  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | datapath_out=%d | N=%d | V=%d | Z=%d, w=%d, err=%d, ALUop=%b, reg_out=%d, asel=%d, write=%d, shift=%b, R3=%b",
-            $time, clk, reset, s, load, in, $signed(out), N, V, Z, w, err, DUT.ALUop, $signed(DUT.out), DUT.asel,DUT.write, DUT.shift, DUT.DP.REGFILE.R3);
+  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | datapath_out=%d | N=%d | V=%d | Z=%d, w=%d, err=%d, ALUop=%b, reg_out=%d, asel=%d, write=%d, shift=%b, R2=%b",
+            $time, clk, reset, s, load, in, $signed(out), N, V, Z, w, err, DUT.ALUop, $signed(DUT.out), DUT.asel,DUT.write, DUT.shift, DUT.DP.REGFILE.R2);
 end
 
 endmodule

@@ -31,12 +31,8 @@ end
 
 
 assign Z = (out==16'b0) ? 1'b1 : 1'b0;
-assign N = (out==16'b1xxxxxxxxxxxxxxx) ? 1'b1 : 1'b0;
-assign V = (Ain[15] == 1 && Bin[15] == 0) ? 1'b0 :
-			  (Ain[15] == 0 && Bin[15] == 1) ? 1'b0 :
-			  (Ain[15] == 0 && Bin[15] == 0 && out[15] == 0) ? 1'b0 :
-			  (Ain[15] == 1 && Bin[15] == 1 && out[15] == 1) ? 1'b0 :
-			  (Ain[15] == 0  && Bin[15] == 0 && out[15] == 1) ? 1'b1 :
+assign N = (out[15]== 1'b1) ? 1'b1 : 1'b0;
+assign V = (Ain[15] == 0  && Bin[15] == 0 && out[15] == 1) ? 1'b1 :
 			  (Ain[15] == 1  && Bin[15] == 1 && out[15] == 0) ? 1'b1 : 1'b0;
 			  
 
