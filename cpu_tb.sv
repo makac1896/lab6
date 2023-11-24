@@ -183,6 +183,9 @@ module cpu_tb;
       $stop;
     end
 	 
+
+	 
+	 
 	 
 	 
 	 
@@ -203,6 +206,41 @@ module cpu_tb;
     if (cpu_tb.DUT.DP.REGFILE.R5 !== 16'd2) begin
       err = 1;
       $display("FAILED: MOV R5, R1");
+      $stop;
+    end
+	 
+	 
+	 
+	 @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b110_00_000_101_00_000;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w); // wait for w to go high again
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R5 !== 16'd7) begin
+      err = 1;
+      $display("FAILED: MOV R5, R0");
+      $stop;
+    end
+	 
+	 
+	 @(negedge clk); // wait for falling edge of clock before changing inputs
+    in = 16'b110_00_000_101_01_000;
+    load = 1;
+    #10;
+    load = 0;
+    s = 1;
+    #10
+    s = 0;
+    @(posedge w); // wait for w to go high again
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R5 !== 16'd14) begin
+      err = 1;
+      $display("FAILED: MOV R5, R0, LSL#1");
       $stop;
     end
 
