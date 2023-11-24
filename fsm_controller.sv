@@ -11,6 +11,9 @@ output reg [1:0] vsel;
 `define decodeState 4'b0001
 `define getLoadA 4'b0010
 `define getLoadB 4'b0011 
+`define getLoadC_MOV 4'b1111
+`define getLoadB_MOV 4'b1110
+`define MOV_Write 4'b0100 
 `define WriteReg 4'b0101 
 `define sximm8Write 4'b0110
 `define getLoadC 4'b0111
@@ -40,6 +43,8 @@ always @(*) begin
         {`waitState,6'bxxxxxx}: next_state = `waitState;
         {`decodeState,6'bx11010}: next_state = `sximm8Write;
         {`decodeState,6'bx11000}: next_state = `getLoadB;
+        {`getLoadB, 6'bx11000}: next_state = `getLoadC_MOV;
+        {`getLoadC_MOV, 6'bxxxxxx}: next_state = `WriteReg;
         {`sximm8Write,6'bxxxxxx}: next_state = `waitState;
         {`decodeState,6'bxxxxxx}: next_state = `getLoadB;
         //Load Registers
@@ -69,6 +74,7 @@ always @(*) begin
         `ADD: {w, loada, loadb, loadc, vsel, asel, bsel, nsel, loads, write} = 13'b0001000000000;
         `WriteReg: {w, loada, loadb, loadc, vsel, asel, bsel, nsel, loads, write} = 13'b0000000001001;
         `getLoadC: {w, loada, loadb, loadc, vsel, asel, bsel, nsel, loads, write} = 13'b0001000000000;
+        `getLoadC_MOV: {w, loada, loadb, loadc, vsel, asel, bsel, nsel, loads, write} = 13'b0_0_0_1_00_1_000000;
         `MVN: {w, loada, loadb, loadc, vsel, asel, bsel, nsel, loads, write} = 13'b0001001000000; 
         `CMP: {w, loada, loadb, loadc, vsel, asel, bsel, nsel, loads, write} = 13'b0000000000010;
         `AND: {w, loada, loadb, loadc, vsel, asel, bsel, nsel, loads, write} = 13'b0001000000000;
