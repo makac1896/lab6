@@ -3,7 +3,7 @@ module datapath(
   input write,
   input [2:0] readnum,
   input clk,
-  output [15:0] datapath_out,
+  output signed [15:0] datapath_out,
   input [1:0] vsel,
   input asel,
   input bsel,

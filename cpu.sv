@@ -4,7 +4,8 @@ input [15:0] in;
 output [15:0] out;
 output N, V, Z, w;
 
-wire [15:0] instruction, sximm5, sximm8, mdata, PC; //what is mdata?? ** it's for lab 7
+wire [15:0] instruction, sximm5, sximm8, mdata; //what is mdata?? ** it's for lab 7
+wire [7:0] PC;
 wire [2:0] opcode, writenum, readnum, nsel;
 wire [1:0] op, vsel, shift, ALUop;
 wire loada, loadb, loadc, loads, asel, bsel, write;
@@ -71,7 +72,7 @@ datapath DP(
     .mdata(mdata),
     .PC(PC), 			//idk where this value is assigned or used ** It's for lab 7, handout said just make it 0
     .shift(shift),
-    .ALUop(op),
+    .ALUop(ALUop),
     .Z(Z), 			// add N and V
 	.N(N),
 	.V(V)

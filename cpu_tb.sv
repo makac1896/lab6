@@ -175,16 +175,18 @@ module cpu_tb;
 
     // Test MVN instruction
     @(negedge clk);
-    in = 16'b1000000101001000;
+	 
+    in = 16'b101_11_000_011_01_001;
     load = 1;
-    #10;
+    #50;
     load = 0;
+	 #10
     s = 1;
     #10
     s = 0;
     @(posedge w);
-    #10;
-    if (cpu_tb.DUT.DP.REGFILE.R3 !== 16'hEF) begin
+    #200;
+    if (cpu_tb.DUT.DP.REGFILE.R3 !== 16'b1111111111111100) begin
       err = 1;
       $display("FAILED: MVN R3, R1, LSL#1");
       $stop;
@@ -209,7 +211,7 @@ module cpu_tb;
 
     // Test AND instruction
     @(negedge clk);
-    in = 16'b1011000101001000;
+    in = 16'b101_10_001_100_01_000;
     load = 1;
     #10;
     load = 0;
@@ -218,7 +220,7 @@ module cpu_tb;
     s = 0;
     @(posedge w);
     #10;
-    if (cpu_tb.DUT.DP.REGFILE.R4 !== 16'h10) begin
+    if (cpu_tb.DUT.DP.REGFILE.R4 !== 16'd2) begin
       err = 1;
       $display("FAILED: AND R4, R1, R0, LSL#1");
       $stop;
@@ -227,5 +229,12 @@ module cpu_tb;
     if (~err) $display("INTERFACE OK");
     $stop;
   end
+  
+  
+  always @(posedge clk) begin
+  $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | datapath_out=%d | N=%d | V=%d | Z=%d, w=%d, err=%d, ALUop=%b, reg_out=%d, asel=%d, write=%d, shift=%b, R3=%b",
+            $time, clk, reset, s, load, in, $signed(out), N, V, Z, w, err, DUT.ALUop, $signed(DUT.out), DUT.asel,DUT.write, DUT.shift, DUT.DP.REGFILE.R3);
+end
+
 endmodule
 
