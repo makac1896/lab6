@@ -1,0 +1,8 @@
+For this lab both partners worked together effectively and productively to complete this lab. We shared some of the initial modules
+and one partner worked on the instruction register and decoder whilst the other setup the FSM controller. Afterwards, we then worked on writing testbenches
+together for all the modules and ensuring that each of our modules was correct. After we had tested the individual modules,
+we started testing each instruction and fixing errors in our datapath and CPU as necessary. This debugging process
+was shared and allowed each partner to work on each part of the lab and gain a solid understanding of it. In the future,
+it would have been beneficial to start using the lab6_check module earlier to spot errors in our cpu and subsequent testbenches.
+We spent a significant amount of time debugging and we learned a lot from this process. In conclusion, both partners combined on each module of this lab
+either through writing the initial implementation, testbenches or integration testing.

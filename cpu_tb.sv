@@ -175,7 +175,7 @@ module cpu_tb;
 
     // Test MVN instruction
     @(negedge clk);
-	 
+
     in = 16'b101_11_000_011_01_001;
     load = 1;
     #50;
@@ -229,8 +229,8 @@ module cpu_tb;
     if (~err) $display("INTERFACE OK");
     $stop;
   end
-  
-  
+
+
   always @(posedge clk) begin
   $display("Time = %t | clk=%d | reset=%d | s=%d | load=%d | in=%b | datapath_out=%d | N=%d | V=%d | Z=%d, w=%d, err=%d, ALUop=%b, reg_out=%d, asel=%d, write=%d, shift=%b, R3=%b",
             $time, clk, reset, s, load, in, $signed(out), N, V, Z, w, err, DUT.ALUop, $signed(DUT.out), DUT.asel,DUT.write, DUT.shift, DUT.DP.REGFILE.R3);

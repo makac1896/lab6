@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab6_top
-Thu Nov 23 05:32:49 2023
+Thu Nov 23 17:24:28 2023
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -21,22 +21,23 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  13. Parameter Settings for User Entity Instance: cpu:U|Instruction_Decoder:instructionDecoder|Mux:muxInDecoder
  14. Parameter Settings for User Entity Instance: cpu:U|Instruction_Decoder:instructionDecoder|SignExtension:extend8
  15. Parameter Settings for User Entity Instance: cpu:U|Instruction_Decoder:instructionDecoder|SignExtension:extend5
- 16. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load0
- 17. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load1
- 18. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load2
- 19. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load3
- 20. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load4
- 21. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load5
- 22. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load6
- 23. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load7
- 24. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|reg_load:A3
- 25. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|reg_load:B4
- 26. Parameter Settings for User Entity Instance: cpu:U|datapath:dp|reg_load:C5
- 27. Port Connectivity Checks: "cpu:U|datapath:dp"
+ 16. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load0
+ 17. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load1
+ 18. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load2
+ 19. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load3
+ 20. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load4
+ 21. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load5
+ 22. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load6
+ 23. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load7
+ 24. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|reg_load:A3
+ 25. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|reg_load:B4
+ 26. Parameter Settings for User Entity Instance: cpu:U|datapath:DP|reg_load:C5
+ 27. Port Connectivity Checks: "cpu:U|datapath:DP"
  28. Port Connectivity Checks: "cpu:U|Instruction_Decoder:instructionDecoder"
  29. Post-Synthesis Netlist Statistics for Top Partition
  30. Elapsed Time Per Partition
  31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -62,13 +63,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Nov 23 05:32:49 2023       ;
+; Analysis & Synthesis Status     ; Successful - Thu Nov 23 17:24:28 2023       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab6_top                                    ;
 ; Top-level Entity Name           ; lab6_top                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 215                                         ;
+; Total registers                 ; 214                                         ;
 ; Total pins                      ; 67                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -208,24 +209,24 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 167          ;
+; Estimate of Logic utilization (ALMs needed) ; 172          ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 214          ;
-;     -- 7 input functions                    ; 1            ;
-;     -- 6 input functions                    ; 49           ;
-;     -- 5 input functions                    ; 101          ;
-;     -- 4 input functions                    ; 46           ;
-;     -- <=3 input functions                  ; 17           ;
+; Combinational ALUT usage for logic          ; 244          ;
+;     -- 7 input functions                    ; 0            ;
+;     -- 6 input functions                    ; 70           ;
+;     -- 5 input functions                    ; 75           ;
+;     -- 4 input functions                    ; 48           ;
+;     -- <=3 input functions                  ; 51           ;
 ;                                             ;              ;
-; Dedicated logic registers                   ; 215          ;
+; Dedicated logic registers                   ; 214          ;
 ;                                             ;              ;
 ; I/O pins                                    ; 67           ;
 ;                                             ;              ;
 ; Total DSP Blocks                            ; 0            ;
 ;                                             ;              ;
 ; Maximum fan-out node                        ; KEY[0]~input ;
-; Maximum fan-out                             ; 199          ;
-; Total fan-out                               ; 1829         ;
+; Maximum fan-out                             ; 198          ;
+; Total fan-out                               ; 1923         ;
 ; Average fan-out                             ; 3.25         ;
 +---------------------------------------------+--------------+
 
@@ -235,26 +236,27 @@ refer to the applicable agreement for further details.
 +--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------+----------------------+--------------+
 ; Compilation Hierarchy Node                       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                     ; Entity Name          ; Library Name ;
 +--------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------+----------------------+--------------+
-; |lab6_top                                        ; 214 (0)             ; 215 (0)                   ; 0                 ; 0          ; 67   ; 0            ; |lab6_top                                                               ; lab6_top             ; work         ;
-;    |cpu:U|                                       ; 178 (0)             ; 199 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U                                                         ; cpu                  ; work         ;
+; |lab6_top                                        ; 244 (0)             ; 214 (0)                   ; 0                 ; 0          ; 67   ; 0            ; |lab6_top                                                               ; lab6_top             ; work         ;
+;    |cpu:U|                                       ; 208 (0)             ; 198 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U                                                         ; cpu                  ; work         ;
 ;       |Instruction_Decoder:instructionDecoder|   ; 9 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|Instruction_Decoder:instructionDecoder                  ; Instruction_Decoder  ; work         ;
 ;          |Mux:muxInDecoder|                      ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|Instruction_Decoder:instructionDecoder|Mux:muxInDecoder ; Mux                  ; work         ;
-;       |datapath:dp|                              ; 136 (16)            ; 178 (2)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp                                             ; datapath             ; work         ;
-;          |ALU:alu_inst|                          ; 42 (42)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|ALU:alu_inst                                ; ALU                  ; work         ;
-;          |reg_load:A3|                           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|reg_load:A3                                 ; reg_load             ; work         ;
-;          |reg_load:B4|                           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|reg_load:B4                                 ; reg_load             ; work         ;
-;          |reg_load:C5|                           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|reg_load:C5                                 ; reg_load             ; work         ;
-;          |regfile:REGFILE|                       ; 62 (62)             ; 128 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE                             ; regfile              ; work         ;
-;             |regfile_load:load0|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load0          ; regfile_load         ; work         ;
-;             |regfile_load:load1|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load1          ; regfile_load         ; work         ;
-;             |regfile_load:load2|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load2          ; regfile_load         ; work         ;
-;             |regfile_load:load3|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load3          ; regfile_load         ; work         ;
-;             |regfile_load:load4|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load4          ; regfile_load         ; work         ;
-;             |regfile_load:load5|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load5          ; regfile_load         ; work         ;
-;             |regfile_load:load6|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load6          ; regfile_load         ; work         ;
-;             |regfile_load:load7|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load7          ; regfile_load         ; work         ;
-;          |shifter:U1_inst|                       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:dp|shifter:U1_inst                             ; shifter              ; work         ;
-;       |fsm_controller:FSM|                       ; 33 (33)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|fsm_controller:FSM                                      ; fsm_controller       ; work         ;
+;       |datapath:DP|                              ; 171 (16)            ; 178 (2)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP                                             ; datapath             ; work         ;
+;          |ALU:alu_inst|                          ; 47 (47)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|ALU:alu_inst                                ; ALU                  ; work         ;
+;          |reg_load:A3|                           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|reg_load:A3                                 ; reg_load             ; work         ;
+;          |reg_load:B4|                           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|reg_load:B4                                 ; reg_load             ; work         ;
+;          |reg_load:C5|                           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|reg_load:C5                                 ; reg_load             ; work         ;
+;          |regfile:REGFILE|                       ; 60 (60)             ; 128 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE                             ; regfile              ; work         ;
+;             |regfile_load:load0|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load0          ; regfile_load         ; work         ;
+;             |regfile_load:load1|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load1          ; regfile_load         ; work         ;
+;             |regfile_load:load2|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load2          ; regfile_load         ; work         ;
+;             |regfile_load:load3|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load3          ; regfile_load         ; work         ;
+;             |regfile_load:load4|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load4          ; regfile_load         ; work         ;
+;             |regfile_load:load5|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load5          ; regfile_load         ; work         ;
+;             |regfile_load:load6|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load6          ; regfile_load         ; work         ;
+;             |regfile_load:load7|                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load7          ; regfile_load         ; work         ;
+;          |shifter:U1_inst|                       ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|shifter:U1_inst                             ; shifter              ; work         ;
+;          |source_mux_a:A6|                       ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|datapath:DP|source_mux_a:A6                             ; source_mux_a         ; work         ;
+;       |fsm_controller:FSM|                       ; 28 (28)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|fsm_controller:FSM                                      ; fsm_controller       ; work         ;
 ;       |instruction_register:instructionRegister| ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|cpu:U|instruction_register:instructionRegister                ; instruction_register ; work         ;
 ;    |input_iface:IN|                              ; 8 (8)               ; 16 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|input_iface:IN                                                ; input_iface          ; work         ;
 ;       |vDFF:REG|                                 ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab6_top|input_iface:IN|vDFF:REG                                       ; vDFF                 ; work         ;
@@ -271,7 +273,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
-; cpu:U|datapath:dp|statusout[2]        ; Stuck at GND due to stuck port data_in ;
+; cpu:U|datapath:DP|statusout[2]        ; Stuck at GND due to stuck port data_in ;
 ; Total Number of Removed Registers = 1 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
@@ -281,7 +283,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 215   ;
+; Total registers                              ; 214   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 16    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -296,13 +298,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
-; 25:1               ; 2 bits    ; 32 LEs        ; 28 LEs               ; 4 LEs                  ; Yes        ; |lab6_top|cpu:U|fsm_controller:FSM|current_state[3]                          ;
-; 26:1               ; 2 bits    ; 34 LEs        ; 28 LEs               ; 6 LEs                  ; Yes        ; |lab6_top|cpu:U|fsm_controller:FSM|current_state[0]                          ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_top|cpu:U|datapath:dp|ALU:alu_inst|Mux13                               ;
-; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |lab6_top|cpu:U|datapath:dp|shifter:U1_inst|Mux3                             ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |lab6_top|cpu:U|datapath:DP|ALU:alu_inst|Mux14                               ;
+; 4:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |lab6_top|cpu:U|datapath:DP|shifter:U1_inst|Mux1                             ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |lab6_top|cpu:U|Instruction_Decoder:instructionDecoder|Mux:muxInDecoder|Mux2 ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |lab6_top|cpu:U|datapath:dp|data_in[5]                                       ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |lab6_top|cpu:U|datapath:dp|regfile:REGFILE|Selector13                       ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |lab6_top|cpu:U|datapath:DP|regfile:REGFILE|data_out[15]                     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------+
 
 
@@ -359,7 +358,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load0 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load0 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -369,7 +368,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load1 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load1 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -379,7 +378,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load2 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load2 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -389,7 +388,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load3 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load3 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -399,7 +398,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load4 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load4 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -409,7 +408,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load5 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load5 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -419,7 +418,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load6 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load6 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -429,7 +428,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +---------------------------------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load7 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load7 ;
 +----------------+-------+--------------------------------------------------------------------------+
 ; Parameter Name ; Value ; Type                                                                     ;
 +----------------+-------+--------------------------------------------------------------------------+
@@ -439,7 +438,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|reg_load:A3 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|reg_load:A3 ;
 +----------------+-------+---------------------------------------------------+
 ; Parameter Name ; Value ; Type                                              ;
 +----------------+-------+---------------------------------------------------+
@@ -449,7 +448,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|reg_load:B4 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|reg_load:B4 ;
 +----------------+-------+---------------------------------------------------+
 ; Parameter Name ; Value ; Type                                              ;
 +----------------+-------+---------------------------------------------------+
@@ -459,7 +458,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +----------------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: cpu:U|datapath:dp|reg_load:C5 ;
+; Parameter Settings for User Entity Instance: cpu:U|datapath:DP|reg_load:C5 ;
 +----------------+-------+---------------------------------------------------+
 ; Parameter Name ; Value ; Type                                              ;
 +----------------+-------+---------------------------------------------------+
@@ -468,14 +467,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------+
-; Port Connectivity Checks: "cpu:U|datapath:dp" ;
-+-------+-------+----------+--------------------+
-; Port  ; Type  ; Severity ; Details            ;
-+-------+-------+----------+--------------------+
-; mdata ; Input ; Info     ; Stuck at GND       ;
-; PC    ; Input ; Info     ; Stuck at GND       ;
-+-------+-------+----------+--------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:U|datapath:DP"                                                                                                                                                                   ;
++----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                           ;
++----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; mdata    ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
+; PC       ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (8 bits) it drives.  The 8 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; PC[7..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                      ;
++----------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------+
@@ -492,28 +492,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 215                         ;
+; arriav_ff             ; 214                         ;
 ;     ENA               ; 194                         ;
 ;     ENA SLD           ; 16                          ;
-;     plain             ; 5                           ;
-; arriav_lcell_comb     ; 222                         ;
+;     plain             ; 4                           ;
+; arriav_lcell_comb     ; 252                         ;
 ;     arith             ; 17                          ;
 ;         1 data inputs ; 1                           ;
 ;         5 data inputs ; 16                          ;
-;     extend            ; 1                           ;
-;         7 data inputs ; 1                           ;
-;     normal            ; 204                         ;
+;     normal            ; 235                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 6                           ;
-;         2 data inputs ; 4                           ;
-;         3 data inputs ; 12                          ;
-;         4 data inputs ; 46                          ;
-;         5 data inputs ; 85                          ;
-;         6 data inputs ; 49                          ;
+;         2 data inputs ; 7                           ;
+;         3 data inputs ; 43                          ;
+;         4 data inputs ; 48                          ;
+;         5 data inputs ; 59                          ;
+;         6 data inputs ; 70                          ;
 ; boundary_port         ; 67                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 5.40                        ;
-; Average LUT depth     ; 2.99                        ;
+; Max LUT depth         ; 5.50                        ;
+; Average LUT depth     ; 2.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -532,7 +530,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Nov 23 05:32:34 2023
+    Info: Processing started: Thu Nov 23 17:24:12 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab6 -c lab6_top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -544,7 +542,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: regfile_tb File: C:/Users/makac/cpen-211/lab6/lab6/regfile_tb.sv Line: 1
 Info (12021): Found 2 design units, including 2 entities, in source file /users/makac/cpen-211/lab6/lab6/regfile.sv
     Info (12023): Found entity 1: regfile File: C:/Users/makac/cpen-211/lab6/lab6/regfile.sv Line: 1
-    Info (12023): Found entity 2: regfile_load File: C:/Users/makac/cpen-211/lab6/lab6/regfile.sv Line: 91
+    Info (12023): Found entity 2: regfile_load File: C:/Users/makac/cpen-211/lab6/lab6/regfile.sv Line: 102
 Info (12021): Found 4 design units, including 4 entities, in source file /users/makac/cpen-211/lab6/lab6/lab6_top.sv
     Info (12023): Found entity 1: lab6_top File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 32
     Info (12023): Found entity 2: input_iface File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 68
@@ -568,16 +566,16 @@ Info (12021): Found 5 design units, including 5 entities, in source file /users/
 Info (12021): Found 1 design units, including 1 entities, in source file /users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv
     Info (12023): Found entity 1: fsm_controller_tb File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller_tb.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file /users/makac/cpen-211/lab6/lab6/fsm_controller.sv
-    Info (12023): Found entity 1: fsm_controller File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 1
+    Info (12023): Found entity 1: fsm_controller File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 381
 Info (12021): Found 1 design units, including 1 entities, in source file /users/makac/cpen-211/lab6/lab6/datapath_tb.sv
     Info (12023): Found entity 1: datapath_tb File: C:/Users/makac/cpen-211/lab6/lab6/datapath_tb.sv Line: 2
 Info (12021): Found 4 design units, including 4 entities, in source file /users/makac/cpen-211/lab6/lab6/datapath.sv
     Info (12023): Found entity 1: datapath File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 1
-    Info (12023): Found entity 2: reg_load File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 149
-    Info (12023): Found entity 3: source_mux_a File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 164
-    Info (12023): Found entity 4: source_mux_b File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 172
+    Info (12023): Found entity 2: reg_load File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 140
+    Info (12023): Found entity 3: source_mux_a File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 155
+    Info (12023): Found entity 4: source_mux_b File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 165
 Info (12021): Found 1 design units, including 1 entities, in source file /users/makac/cpen-211/lab6/lab6/cpu_tb.sv
-    Info (12023): Found entity 1: cpu_tb File: C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv Line: 3
+    Info (12023): Found entity 1: cpu_tb File: C:/Users/makac/cpen-211/lab6/lab6/cpu_tb.sv Line: 101
 Info (12021): Found 1 design units, including 1 entities, in source file /users/makac/cpen-211/lab6/lab6/cpu.sv
     Info (12023): Found entity 1: cpu File: C:/Users/makac/cpen-211/lab6/lab6/cpu.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/makac/cpen-211/lab6/lab6/alu_tb.sv
@@ -596,17 +594,31 @@ Info (10264): Verilog HDL Case Statement information at Instruction_Decoder.sv(7
 Info (12128): Elaborating entity "SignExtension" for hierarchy "cpu:U|Instruction_Decoder:instructionDecoder|SignExtension:extend8" File: C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv Line: 47
 Info (12128): Elaborating entity "SignExtension" for hierarchy "cpu:U|Instruction_Decoder:instructionDecoder|SignExtension:extend5" File: C:/Users/makac/cpen-211/lab6/lab6/Instruction_Decoder.sv Line: 52
 Info (12128): Elaborating entity "fsm_controller" for hierarchy "cpu:U|fsm_controller:FSM" File: C:/Users/makac/cpen-211/lab6/lab6/cpu.sv Line: 52
-Info (12128): Elaborating entity "datapath" for hierarchy "cpu:U|datapath:dp" File: C:/Users/makac/cpen-211/lab6/lab6/cpu.sv Line: 78
-Warning (10230): Verilog HDL assignment warning at datapath.sv(51): truncated value with size 24 to match size of target (16) File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 51
-Info (12128): Elaborating entity "regfile" for hierarchy "cpu:U|datapath:dp|regfile:REGFILE" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 65
-Info (10264): Verilog HDL Case Statement information at regfile.sv(76): all case item expressions in this case statement are onehot File: C:/Users/makac/cpen-211/lab6/lab6/regfile.sv Line: 76
-Info (12128): Elaborating entity "regfile_load" for hierarchy "cpu:U|datapath:dp|regfile:REGFILE|regfile_load:load0" File: C:/Users/makac/cpen-211/lab6/lab6/regfile.sv Line: 22
-Info (12128): Elaborating entity "reg_load" for hierarchy "cpu:U|datapath:dp|reg_load:A3" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 73
-Info (12128): Elaborating entity "source_mux_a" for hierarchy "cpu:U|datapath:dp|source_mux_a:A6" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 80
-Info (12128): Elaborating entity "shifter" for hierarchy "cpu:U|datapath:dp|shifter:U1_inst" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 96
-Info (12128): Elaborating entity "source_mux_b" for hierarchy "cpu:U|datapath:dp|source_mux_b:B7" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 104
-Info (12128): Elaborating entity "ALU" for hierarchy "cpu:U|datapath:dp|ALU:alu_inst" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 114
+Warning (10935): Verilog HDL Casex/Casez warning at fsm_controller.sv(429): casex/casez item expression overlaps with a previous casex/casez item expression File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 429
+Warning (10935): Verilog HDL Casex/Casez warning at fsm_controller.sv(432): casex/casez item expression overlaps with a previous casex/casez item expression File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 432
+Warning (10935): Verilog HDL Casex/Casez warning at fsm_controller.sv(437): casex/casez item expression overlaps with a previous casex/casez item expression File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 437
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(452): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 452
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(453): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 453
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(454): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 454
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(455): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 455
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(456): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 456
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(457): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 457
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(458): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 458
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(459): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 459
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(460): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 460
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(461): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 461
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(462): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 462
+Warning (10230): Verilog HDL assignment warning at fsm_controller.sv(463): truncated value with size 15 to match size of target (13) File: C:/Users/makac/cpen-211/lab6/lab6/fsm_controller.sv Line: 463
+Info (12128): Elaborating entity "datapath" for hierarchy "cpu:U|datapath:DP" File: C:/Users/makac/cpen-211/lab6/lab6/cpu.sv Line: 78
+Info (12128): Elaborating entity "regfile" for hierarchy "cpu:U|datapath:DP|regfile:REGFILE" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 56
+Info (12128): Elaborating entity "regfile_load" for hierarchy "cpu:U|datapath:DP|regfile:REGFILE|regfile_load:load0" File: C:/Users/makac/cpen-211/lab6/lab6/regfile.sv Line: 22
+Info (12128): Elaborating entity "reg_load" for hierarchy "cpu:U|datapath:DP|reg_load:A3" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 64
+Info (12128): Elaborating entity "source_mux_a" for hierarchy "cpu:U|datapath:DP|source_mux_a:A6" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 71
+Info (12128): Elaborating entity "shifter" for hierarchy "cpu:U|datapath:DP|shifter:U1_inst" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 87
+Info (12128): Elaborating entity "source_mux_b" for hierarchy "cpu:U|datapath:DP|source_mux_b:B7" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 95
+Info (12128): Elaborating entity "ALU" for hierarchy "cpu:U|datapath:DP|ALU:alu_inst" File: C:/Users/makac/cpen-211/lab6/lab6/datapath.sv Line: 105
 Info (12128): Elaborating entity "sseg" for hierarchy "sseg:H0" File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 59
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 35
     Warning (13410): Pin "HEX4[0]" is stuck at VCC File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 36
@@ -622,18 +634,25 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX5[5]" is stuck at VCC File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 36
     Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 36
 Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/makac/cpen-211/lab6/lab6/synthesis/output_files/lab6_top.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/makac/cpen-211/lab6/lab6/lab6_top.sv Line: 34
-Info (21057): Implemented 489 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 519 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 52 output pins
-    Info (21061): Implemented 422 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4890 megabytes
-    Info: Processing ended: Thu Nov 23 05:32:49 2023
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:09
+    Info (21061): Implemented 452 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 35 warnings
+    Info: Peak virtual memory: 4893 megabytes
+    Info: Processing ended: Thu Nov 23 17:24:28 2023
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:10
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/makac/cpen-211/lab6/lab6/synthesis/output_files/lab6_top.map.smsg.
 
 
