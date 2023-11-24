@@ -39,14 +39,11 @@ reg [2:0] statusout;
 // WritebackMultiplexer
 // edit due to datapath_in***
 
-always_comb begin
-	case(vsel)
-	00: data_in = datapath_out;
-	01: data_in = {8'b0, PC};
-	10: data_in = sximm8;
-	11: data_in = mdata;	
-	endcase
-end 
+assign data_in = (vsel == 2'b00) ? datapath_out :
+                (vsel == 2'b01) ? {8'b0, PC} :
+                (vsel == 2'b10) ? sximm8 :
+                (vsel == 2'b11) ? mdata : 16'b0; // Assuming default value is 8'b0 when vsel is not matched
+
 
 //instantiate register file
 regfile REGFILE (
